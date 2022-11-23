@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web_api>
+   <name>M7 Auth Api</name>
+   <version>0.1</version>
+   <purpose>Servicios de login y verificación de sesiones</purpose>
+   <web_methods_collection>
+       <web_method>
+           <endpoint>_ws_auth.php</endpoint>
+           <description>Log into the system</description>
+           <params_collection>
+               <param name="action">
+                   <type>string</type>
+                   <mandatory>yes</mandatory>
+                   <default>login</default>
+               </param>
+               <param name="user">
+                   <type>string</type>
+                   <mandatory>yes</mandatory>
+                   <min_length>15</min_length>
+               </param>
+               <param name="pwd">
+                   <type>string</type>
+                   <mandatory>yes</mandatory>
+                   <min_length>15</min_length>
+               </param>
+           </params_collection>
+       </web_method>
+ 
+       <web_method>
+           <endpoint>_ws_auth.php</endpoint>
+           <description>Logout into the system</description>
+           <params_collection>
+               <param name="action">
+                   <type>string</type>
+                   <mandatory>yes</mandatory>
+                   <default>logout</default>
+               </param>
+               <param name="cid">
+                   <type>string</type>
+                   <mandatory>yes</mandatory>
+               </param>
+           </params_collection>
+       </web_method>
+ 
+   </web_methods_collection>
+</web_api>
