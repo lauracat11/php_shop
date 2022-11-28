@@ -1,4 +1,4 @@
 <?php
-    include_once __DIR__. "/modules/clsServerAPI.php";
+    include_once "modules/clsServerAPI.php";
     echo "hola2";
 ?>
