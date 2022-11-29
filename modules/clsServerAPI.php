@@ -8,13 +8,13 @@
     header("Content-type: text/xml");
 
     class clsServerAPI{
-        public $XMLroute;
-        public $obj_xmlutils;
 
-        function __constructor(){
+        private $XMLroute;
+        private $obj_xmlutils;
+
+        function __construct(){
 
         }
-        
         // Setter
         function setXMLroute($pXMLroute){
             $this->XMLroute = $pXMLroute;
@@ -22,16 +22,13 @@
         }
 
         function hola(){
-            // var_dump($this->obj_xmlutils);
+            var_dump($this->obj_xmlutils);
         }
         
         function Print(){
             $this->obj_xmlutils = new clsXMLUtils();
             $this->obj_xmlutils->ReadFileAsXML($this->XMLroute);
-            $this->obj_xmlutils->getXML();
-
-            // echo $this->obj_xmlutils;
-
+            echo $this->obj_xmlutils->getXML();
         }
 
     }
