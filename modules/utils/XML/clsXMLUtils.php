@@ -20,6 +20,10 @@ class clsXMLUtils{
         return $this->obj_simplexml->asXML();
     }
 
+    public function TEST(){
+        echo "hola";
+    }
+
     public function ApplyXPath($pPath, $pSaveXML){
 
         $xpath = $this->obj_simplexml->xpath($pPath);
