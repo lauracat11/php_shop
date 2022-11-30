@@ -4,8 +4,9 @@ class clsParams{
 
     private $PARAMtype;
     private $PARAMarray;
-    private $Method;
+    private $webMethod;
     public $obj_paramxml;
+    private $XPATHaction;
     //Función que recoja los parámetros de la URL
 
     //Según el tipo de parámetros, se escogerá una plantilla de XML
@@ -14,14 +15,15 @@ class clsParams{
 
     //Getter del XML
 
-    function __construct($MethodValue, $TypeValue){
-        $this->setParamMethod($MethodValue);
+    function __construct($webMethodValue, $TypeValue){
+        $this->setParamMethod($webMethodValue);
         $this->setParamType($TypeValue);
+        $this->XPATHaction = '/web_api/web_methods_collection/web_method[0]/params_collection/param/default'
     }
 
     function setParamMethod($pMethod){
-        $this->Method = $pMethod;
-        return $this->Method;
+        $this->webMethod = $pMethod;
+        return $this->webMethod;
     }
 
     function setParamType($pType){
@@ -33,12 +35,25 @@ class clsParams{
         return $this->PARAMarray;
     }
 
-    function XMLParam(){
-        if($this->PARAMtype == "POST"){
-            $tempArray = [];
+    function getParamsFromURL(){
 
-        }
+        $action = $_GET["action"];
+        $user = $_GET["user"];
+        $pwd = $_GET['pwd'];
+        $cid = $_GET['cid'];
+
     }
+
+
+
+    function XMLParam($pName){
+                $array = [
+                    "action" => [],
+                    "user" => [],
+                    "pwd" => [],
+                ];
+
+}
 
 
 
