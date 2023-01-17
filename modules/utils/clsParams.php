@@ -18,7 +18,7 @@ class clsParams{
     function __construct($webMethodValue, $TypeValue){
         $this->setParamMethod($webMethodValue);
         $this->setParamType($TypeValue);
-        $this->XPATHaction = '/web_api/web_methods_collection/web_method[0]/params_collection/param/default'
+        $this->XPATHaction = '/web_api/web_methods_collection/web_method[0]/params_collection/param/default';
     }
 
     function setParamMethod($pMethod){
@@ -30,6 +30,7 @@ class clsParams{
         $this->PARAMtype = $pType;
         return $this->PARAMtype;
     }
+    
     function setArray($pArray){
         $this->PARAMarray = $pArray;
         return $this->PARAMarray;
