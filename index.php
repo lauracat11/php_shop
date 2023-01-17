@@ -1,9 +1,20 @@
 <?php
-    include_once "modules/clsServerAPI.php";
+    include_once "modules/clsMethod.php";
     include_once "modules/utils/clsParams.php";
-    $API =  new clsServerAPI("xml/web_api_0_1.xml");
+    //Este es Paco
+    $API =  new clsMethod("xml/web_api_0_1.xml");
+
+    //Esta es Paquita
     $PARAM = new clsParams('a','a');
     // $API->Print();
-    // $URL = $_SERVER['REQUEST_URI'];
-    // $PARAM->getParamsFromURL();
+
+    //Entra un cliente
+    $URL = $_SERVER['REQUEST_URI'];
+
+    //Paquita ha pedido cosas
+    $PARAM->getParamsFromURL("user");
+    $PARAM->getParamsFromURL("pwd");
+
+    //Paquita ya no nos habla
+    // $PARAM->printARRAY();
 ?>

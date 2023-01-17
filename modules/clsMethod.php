@@ -7,7 +7,7 @@
     // Imprimir por pantalla el xml por parámetro.
 
 
-    class clsServerAPI{
+    class clsMethod{
 
         private $XMLroute;
         private $obj_xmlutils;
