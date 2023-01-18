@@ -1,0 +1,21 @@
+           <endpoint>_ws_auth.php</endpoint>
+           <description>Logout into the system</description>
+           <params_collection>
+               <param name="action">
+                   <type>string</type>
+                   <mandatory>yes</mandatory>
+                   <default>logout</default>
+               </param>
+
+               Requisitos para que exista un webMethod, como minimo
+
+            
+            <param name="user">
+                   <type>string</type>
+                   <mandatory>yes</mandatory>
+                   <min_length>15</min_length>
+               </param>
+
+            Parámetros del usuario, son distintos al webmethod
+
+            
