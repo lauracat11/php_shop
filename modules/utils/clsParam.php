@@ -29,20 +29,28 @@ class clsParam{
     }
 
     function Check_minlength($pParam, $pLengthValue){
-        
+        var_dump($pParam);
+        // var_dump($pLengthValue);
+
         if(strlen($pParam) >= $pLengthValue){
             return true;
         }else{
-            return false;
+            return 1000;
         };
     }
 
      //Función que detectará si es obligatorio o no
-     function Check_mandatory($pParam){
-        if($pParam == ""){
-            return false;
-        }else{
-            return true;
+     function Check_mandatory($pParam, $pMandatory){
+        switch($pMandatory){
+            case ("yes"):
+                if($pParam == ""){
+                    return 1011;
+                }else{
+                    return true;
+                }
+
+            case ("no"):
+                return true;
         }
      }
 
@@ -76,31 +84,23 @@ class clsParam{
                             array_push($checking, true);
                             break;
                         default:
-                            array_push($checking, false);
+                            array_push($checking, 1002);
                             break;
                         }
                     break;
 
                 case "mandatory":
-                    switch($this->ValidationParams[1][$i]){
-                        case "yes":
-                            $result_mandatory = $this->Check_mandatory($pParamToCheck);
-                            array_push($checking,$result_mandatory);
-                            break;
+                        $result_mandatory = $this->Check_mandatory($pParamToCheck, $this->ValidationParams[1][$i]);
+                        array_push($checking, $result_mandatory);
 
-                        default:
-                            array_push($checking, false);
-                            break;
-                        }
-                    break;
 
                 case "min_length":
-                    $result_minlength = $this->Check_minlength($pParamToCheck, $this->ValidationParams[1][$i]);
-                    array_push($checking, $result_minlength);
-                    break;
+                        $result_minlength = $this->Check_minlength($pParamToCheck, $this->ValidationParams[1][$i]);
+                        array_push($checking, $result_minlength);
+                        break;
             }
         }
-        var_dump($checking);
+        // var_dump($checking);
         }
 
         //Laura
