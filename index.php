@@ -6,13 +6,13 @@
     $testARRAY = [['type','mandatory','min_length'],['string', 'yes', 15]];
     //Esta es Paquita
     $PARAM = new clsParam('user', $testARRAY);
-    // $API->Print();
+    $API->Print();
 
     //Entra un cliente
-    $URL = $_SERVER['REQUEST_URI'];
+    // $URL = $_SERVER['REQUEST_URI'];
 
     //Paquita ha pedido cosas
-    $PARAM->getParamsFromURL("user");
+    // $PARAM->getParamsFromURL("user");
     // $PARAM->getParamsFromURL("pwd");
 
     //Paquita ya no nos habla

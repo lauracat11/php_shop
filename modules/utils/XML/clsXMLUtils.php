@@ -45,7 +45,7 @@ class clsXMLUtils{
     }
 
     public function saveXML($pXML){
-        $route = '../xml/' . $this->GenerateHash() . '.xml';
+        $route = 'xml/' . $this->GenerateHash() . '.xml';
         return $pXML->asXML($route);
     }
 

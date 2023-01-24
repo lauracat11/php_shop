@@ -29,7 +29,7 @@ class clsParam{
     }
 
     function Check_minlength($pParam, $pLengthValue){
-        var_dump($pParam);
+        // var_dump($pParam);
         // var_dump($pLengthValue);
 
         if(strlen($pParam) >= $pLengthValue){
@@ -55,7 +55,14 @@ class clsParam{
      }
 
      //Función que checkeará si es un string
-     function Check_isString(){}
+     function Check_isString($checkString){
+        $result = is_string($checkString);
+
+        if($result == false){
+            return 1003;
+        }
+        return $result;
+     }
  
      //Función que checkeará el min length de un parámetro
      
@@ -76,12 +83,13 @@ class clsParam{
 
         $checking = [];
         
-        for ($i = 1; $i < count($this->ValidationParams[0]) ; $i++) {
+        for ($i = 0; $i < count($this->ValidationParams[0]) ; $i++) {
             switch($this->ValidationParams[0][$i]){
                 case "type":
                     switch($this->ValidationParams[1][$i]){
                         case "string":
-                            array_push($checking, true);
+                            $result_string = $this->Check_isString($pParamToCheck);
+                            array_push($checking, $result_string);
                             break;
                         default:
                             array_push($checking, 1002);
@@ -101,7 +109,7 @@ class clsParam{
                         break;
             }
         }
-        // var_dump($checking);
+        var_dump($checking);
         }
 
         //Laura
