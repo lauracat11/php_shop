@@ -92,6 +92,7 @@ class clsParam{
                 case "mandatory":
                         $result_mandatory = $this->Check_mandatory($pParamToCheck, $this->ValidationParams[1][$i]);
                         array_push($checking, $result_mandatory);
+                        break;
 
 
                 case "min_length":
