@@ -12,7 +12,7 @@
         private $XMLroute;
         private $obj_xmlutils;
         // private $XPATH = '/web_api/web_methods_collection/web_method[0]/params_collection/param[0]/default';
-        private $XPATH = "/web_api";
+        private $XPATH = "/";
 
         function __construct($pXMLroute){
             $this->XMLroute = $pXMLroute;
@@ -24,10 +24,11 @@
         }
         
         function Print(){
-            header("Content-type: text/xml");
+            // header("Content-type: text/xml");
             $this->obj_xmlutils->ReadFileAsXML($this->XMLroute);
-            // $result = $this->obj_xmlutils->ApplyXPath($this->XPATH, true);
-            echo $this->obj_xmlutils->getXML();
+            $this->obj_xmlutils->ApplyXPath($this->XPATH, false);
+           
+            var_dump($this->obj_xmlutils);
             // var_dump($result);
         }
 
