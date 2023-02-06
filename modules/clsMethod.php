@@ -26,10 +26,16 @@
         function Print(){
             // header("Content-type: text/xml");
             $this->obj_xmlutils->ReadFileAsXML($this->XMLroute);
-            $this->obj_xmlutils->ApplyXPath($this->XPATH, false);
+            // $this->obj_xmlutils->ApplyXPath($this->XPATH, false);
            
             var_dump($this->obj_xmlutils);
             // var_dump($result);
+        }
+
+        function ParamValidation(){
+            $this->obj_xmlutils->ReadFileAsXML($this->XMLroute);
+            $result = $this->obj_xmlutils->getObjXML();
+            $result->xpath();
         }
 
     }

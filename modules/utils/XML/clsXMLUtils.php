@@ -21,6 +21,10 @@ class clsXMLUtils{
         return $this->obj_simplexml->asXML();
     }
 
+    public function getObjXML(){
+        return $this->obj_simplexml;
+    }
+
     public function TEST(){
         echo "hola";
     }
