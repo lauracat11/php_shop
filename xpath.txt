@@ -34,3 +34,9 @@ Obtener los param, metodo logout= /web_api/web_methods_collection/web_method[2]/
 
         Obtener solo el type de cid= /web_api/web_methods_collection/web_method[1]/params_collection/param[2]/type
         Obtener solo el mandatory de cid= /web_api/web_methods_collection/web_method[1]/params_collection/param[2]/mandatory
+
+
+
+
+
+    Obtener params count /web_api/web_methods_collection/web_method[1]/params_collection/param
