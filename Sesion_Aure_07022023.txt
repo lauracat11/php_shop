@@ -1,0 +1,51 @@
+ // ========= Sesión Aure 07-02-2023=======
+En el clsRequest:
+     public function Exist($param){
+         if (isset($_GET{$pName})){
+             return true;
+           
+           }elseif(isset($_POST{$pName})){
+             return true;
+           
+           }else{
+             return false;
+           }
+       
+     }
+     public function GetValue($param){
+         if ($this->Exist()){
+             return $_GET{$pName}
+                    
+         }else{
+             return false;
+         }
+            
+     }
+ }
+
+    // En el clsServerApi:
+
+    function __construct(){
+        $this->obj_xmlutils= new clsXMLUtils;
+        $this->configfileread =$configfile;
+        $this->Init();
+    }
+
+    public function Init(){
+        $this->ReadConfigurationFile();
+        $this->ParseWebMethod();
+    }
+    public function ReadConfigurationFile(){
+        $this->obj_xmlutils->ReadFile($this->configfile);
+    }
+    public function ParseWebMethod(){
+        $arrMethods= $this->obj_xmlutils->ApplyXPath('ruta de xpath');
+        foreach (arrMethods as $Method){
+            $this->addMethod($this->Utils->ArrayToSimpleXML($Method));
+        }
+    }
+    public function addMethod(SimpleXMLElement $) 
+
+    // Endpoint (_ws_0.1);
+    // $obj_request= new clsRequest;
+    // $obj_api= new clsServer
