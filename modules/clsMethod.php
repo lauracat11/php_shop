@@ -34,8 +34,24 @@
 
         function ParamValidation(){
             $this->obj_xmlutils->ReadFileAsXML($this->XMLroute);
-            $result = $this->obj_xmlutils->getObjXML();
-            $result->xpath();
+            $xml_param = $this->obj_xmlutils->getObjXML();
+            $xml_param_with_xpath = $xml_param->xpath('/web_api/web_methods_collection/web_method[1]/params_collection/param');
+
+            // var_dump($xml_param_with_xpath);
+            // foreach($xml_param_with_xpath as $param){
+            //     echo $param[0];
+            // }
+
+            for($i = 0; $i < count($xml_param_with_xpath); $i++){
+
+                print_r($xml_param_with_xpath['type']);
+
+
+                // print_r('/////////////////////////////////////Separación///////////////////////////////////////////');
+                // print_r($xml_param_with_xpath[$i]);
+            };
+
+
         }
 
     }
