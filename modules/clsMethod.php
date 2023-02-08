@@ -45,34 +45,38 @@
                 array_push($arrayParamName,$data->__toString());
                 switch($data){
                     case('action'):
-                        array_push($temp_array, 'He recogido el action');
+                        // array_push($temp_array, 'He recogido el action');
                         $matrixToParam = [
-                            ['type', 'mandatory', 'default']
+                            ['type', 'mandatory', 'default'],
                         ];
+                        $OmegaXPATH = $xml_param->xpath('/web_api/web_methods_collection/web_method[1]/params_collection/param[1]/type|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/type|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/mandatory|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/type|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/default');
 
-                        
-
+                        for($j = 0; $j < count($OmegaXPATH); $j++){
+                            array_push($temp_array, $OmegaXPATH[$j]->__toString());
+                        }
+                        array_push($matrixToParam, $temp_array);
                         break;
+
                     case('user'):
-                        array_push($temp_array, 'He recogido el user');
-                        $matrixToParam = [
-                            ['type', 'mandatory', 'min_length']
-                        ];
+                        // array_push($temp_array, 'He recogido el user');
+                        // $matrixToParam = [
+                        //     ['type', 'mandatory', 'min_length']
+                        // ];
                         break;
                     case('pwd'):
-                        array_push($temp_array, 'He recogido el pwd');
-                        $matrixToParam = [
-                            ['type', 'mandatory', 'min_length']
-                        ];
+                        // array_push($temp_array, 'He recogido el pwd');
+                        // $matrixToParam = [
+                        //     ['type', 'mandatory', 'min_length']
+                        // ];
                         break;
                     default:
-                        array_push($temp_array, 'No he recogido nada');
+                        // array_push($temp_array, 'No he recogido nada');
                         break;
                 }
 
             };
             $this->ARRAY_paramName = $arrayParamName;
-            var_dump($temp_array);
+            var_dump($matrixToParam);
 
 
             
