@@ -40,3 +40,6 @@ Obtener los param, metodo logout= /web_api/web_methods_collection/web_method[2]/
 
 
     Obtener params count /web_api/web_methods_collection/web_method[1]/params_collection/param
+
+
+    /web_api/web_methods_collection/web_method[1]/params_collection/param[1]/type|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/type|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/mandatory|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/type|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/default
