@@ -46,12 +46,24 @@
                 switch($data){
                     case('action'):
                         array_push($temp_array, 'He recogido el action');
+                        $matrixToParam = [
+                            ['type', 'mandatory', 'default']
+                        ];
+
+                        
+
                         break;
                     case('user'):
                         array_push($temp_array, 'He recogido el user');
+                        $matrixToParam = [
+                            ['type', 'mandatory', 'min_length']
+                        ];
                         break;
                     case('pwd'):
                         array_push($temp_array, 'He recogido el pwd');
+                        $matrixToParam = [
+                            ['type', 'mandatory', 'min_length']
+                        ];
                         break;
                     default:
                         array_push($temp_array, 'No he recogido nada');
