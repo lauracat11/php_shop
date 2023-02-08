@@ -45,3 +45,9 @@ Obtener los param, metodo logout= /web_api/web_methods_collection/web_method[2]/
 /web_api/web_methods_collection/web_method[1]/params_collection/param[1]/type|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/mandatory|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/default
 
 /web_api/web_methods_collection/web_method[1]/params_collection/param[2]/type|//web_api/web_methods_collection/web_method[1]/params_collection/param[2]/mandatory|//web_api/web_methods_collection/web_method[1]/params_collection/param[2]/min_length
+
+/web_api/web_methods_collection/web_method[1]/params_collection/param[3]/type|//web_api/web_methods_collection/web_method[1]/params_collection/param[3]/mandatory|//web_api/web_methods_collection/web_method[1]/params_collection/param[3]/min_length
+
+/web_api/web_methods_collection/web_method[2]/params_collection/param[1]/type|//web_api/web_methods_collection/web_method[2]/params_collection/param[1]/mandatory|//web_api/web_methods_collection/web_method[2]/params_collection/param[1]/default
+
+/web_api/web_methods_collection/web_method[2]/params_collection/param[2]/type|//web_api/web_methods_collection/web_method[2]/params_collection/param[2]/mandatory
