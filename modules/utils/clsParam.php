@@ -25,12 +25,11 @@ class clsParam{
 
     function getParamsFromURL($pNametoGet){
         $result = $_GET[$pNametoGet];
-        $this->ValidateParams($result);
+        $returningvalue = $this->ValidateParams($result);
+        return $returningvalue;
     }
 
     function Check_minlength($pParam, $pLengthValue){
-        // var_dump($pParam);
-        // var_dump($pLengthValue);
 
         if(strlen($pParam) >= $pLengthValue){
             return true;
@@ -38,6 +37,19 @@ class clsParam{
             return 1000;
         };
     }
+
+    function Check_default($pParam){
+        switch($pParam){
+            case('login'):
+                return true;
+            case('logout'):
+                return true;
+            default:
+                return 1021;
+        }
+
+    }
+
 
      //Función que detectará si es obligatorio o no
      function Check_mandatory($pParam, $pMandatory){
@@ -63,22 +75,7 @@ class clsParam{
         }
         return $result;
      }
- 
-     //Función que checkeará el min length de un parámetro
-     
- 
- 
-     function XMLParam($pName){
- 
-                 // $array = [
-                 //     "action" => [],
-                 //     "user" => [],
-                 //     "pwd" => [],
-                 // ];
- 
-     }
 
-    
     function ValidateParams($pParamToCheck){
 
         $checking = [];
@@ -107,15 +104,14 @@ class clsParam{
                         $result_minlength = $this->Check_minlength($pParamToCheck, $this->ValidationParams[1][$i]);
                         array_push($checking, $result_minlength);
                         break;
+                case "default":
+                        $result_default = $this->Check_default($pParamToCheck);
+                        array_push($checking, $result_default);
+                        break;
             }
         }
-        var_dump($checking);
+            return $checking;
         }
-
-        //Laura
-        //for que recorrerá la matriz, comprobando el tipo y el valor del ValidationParams
-
-
     }
 
 
