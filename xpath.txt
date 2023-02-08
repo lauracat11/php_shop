@@ -1,0 +1,45 @@
+Fichero para las rutas xpath. 
+Obtener los param, metodo log in=/web_api/web_methods_collection/web_method[1]/params_collection
+
+    Obtener solo el param action= /web_api/web_methods_collection/web_method[1]/params_collection/param[1]
+
+        Obtener solo el type de action= /web_api/web_methods_collection/web_method[1]/params_collection/param[1]/type
+        Obtener solo el mandatory de action= /web_api/web_methods_collection/web_method[1]/params_collection/param[1]/mandatory
+        Obtener solo el default de action= /web_api/web_methods_collection/web_method[1]/params_collection/param[1]/default
+
+    Obtener solo el param user= /web_api/web_methods_collection/web_method[1]/params_collection/param[2]
+
+        Obtener solo el type de user=/web_api/web_methods_collection/web_method[1]/params_collection/param[2]/type
+        Obtener solo el mandatory de user= /web_api/web_methods_collection/web_method[1]/params_collection/param[2]/mandatory
+        Obtener solo el min_length de user= /web_api/web_methods_collection/web_method[1]/params_collection/param[2]/min_length
+
+    Obtener solo el param pwd=/web_api/web_methods_collection/web_method[1]/params_collection/param[3]
+
+        Obtener solo el type de pwd= /web_api/web_methods_collection/web_method[1]/params_collection/param[2]/type
+        Obtener solo el mandatory de pwd= /web_api/web_methods_collection/web_method[1]/params_collection/param[2]/mandatory
+        Obtener solo el min_length de pwd= /web_api/web_methods_collection/web_method[1]/params_collection/param[2]/min_length
+
+
+
+
+Obtener los param, metodo logout= /web_api/web_methods_collection/web_method[2]/params_collection
+
+    Obtener solo el param action=/web_api/web_methods_collection/web_method[1]/params_collection/param[1]
+
+        Obtener solo el type de action= /web_api/web_methods_collection/web_method[2]/params_collection/param[1]/type
+        Obtener solo el mandatory de action= /web_api/web_methods_collection/web_method[2]/params_collection/param[1]/mandatory
+        Obtener solo el default de action= /web_api/web_methods_collection/web_method[2]/params_collection/param[1]/default
+        
+    Obtener solo el param cid= /web_api/web_methods_collection/web_method[1]/params_collection/param[2]
+
+        Obtener solo el type de cid= /web_api/web_methods_collection/web_method[1]/params_collection/param[2]/type
+        Obtener solo el mandatory de cid= /web_api/web_methods_collection/web_method[1]/params_collection/param[2]/mandatory
+
+
+
+
+
+    Obtener params count /web_api/web_methods_collection/web_method[1]/params_collection/param
+
+
+    /web_api/web_methods_collection/web_method[1]/params_collection/param[1]/type|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/type|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/mandatory|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/type|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/default

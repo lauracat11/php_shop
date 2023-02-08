@@ -2,8 +2,8 @@
 
 class clsXMLUtils{
 
-    private $obj_simplexml;
-    private $xpathvalue;
+    public $obj_simplexml;
+    public $xpathvalue;
 
     function __construct()
     {
@@ -12,12 +12,21 @@ class clsXMLUtils{
 
     public function ReadFileAsXML($pURL){
         $this->obj_simplexml = simplexml_load_file($pURL);
+        return $this->obj_simplexml;
     }
 
     //Creamos un Getter
 
     public function getXML(){
         return $this->obj_simplexml->asXML();
+    }
+
+    public function getObjXML(){
+        return $this->obj_simplexml;
+    }
+
+    public function TEST(){
+        echo "hola";
     }
 
     public function ApplyXPath($pPath, $pSaveXML){
@@ -41,7 +50,7 @@ class clsXMLUtils{
     }
 
     public function saveXML($pXML){
-        $route = '../xml/' . $this->GenerateHash() . '.xml';
+        $route = 'xml/' . $this->GenerateHash() . '.xml';
         return $pXML->asXML($route);
     }
 
@@ -60,13 +69,13 @@ class clsXMLUtils{
             $string = $XMLvalue->asXML();
             $this->xpathvalue = $string;
         }
+        return $this->xpathvalue;
 
     }
 
     public function getXPATHvalue(){
         return $this->xpathvalue;
     }
-
 }
 
 ?>
