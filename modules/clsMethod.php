@@ -37,13 +37,31 @@
             $xml_param = $this->obj_xmlutils->getObjXML();
             $xml_param_with_xpath = $xml_param->xpath('/web_api/web_methods_collection/web_method[1]/params_collection/param/@name');
             $arrayParamName = [];
-            
+            //Variable temp_array es de comprobación, cuando funcione hay que borrarla
+            $temp_array = [];
+
             for($i = 0; $i < count($xml_param_with_xpath); $i++){
                 $data = $xml_param_with_xpath[$i]['name'][0];
                 array_push($arrayParamName,$data->__toString());
+                switch($data){
+                    case('action'):
+                        array_push($temp_array, 'He recogido el action');
+                        break;
+                    case('user'):
+                        array_push($temp_array, 'He recogido el user');
+                        break;
+                    case('pwd'):
+                        array_push($temp_array, 'He recogido el pwd');
+                        break;
+                    default:
+                        array_push($temp_array, 'No he recogido nada');
+                        break;
+                }
 
             };
             $this->ARRAY_paramName = $arrayParamName;
+            var_dump($temp_array);
+
 
             
 
