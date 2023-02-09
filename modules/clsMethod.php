@@ -2,9 +2,7 @@
 
     //Exportar XML Utils
     include_once "modules/utils/XML/clsXMLUtils.php";
-    //Integrar la utilidad en el constructor
-
-    // Imprimir por pantalla el xml por parámetro.
+    include_once "modules/utils/clsParam.php";
 
 
     class clsMethod{
@@ -39,40 +37,74 @@
             $arrayParamName = [];
             //Variable temp_array es de comprobación, cuando funcione hay que borrarla
             $temp_array = [];
+            $validations = [];
 
             for($i = 0; $i < count($xml_param_with_xpath); $i++){
                 $data = $xml_param_with_xpath[$i]['name'][0];
                 array_push($arrayParamName,$data->__toString());
                 switch($data){
                     case('action'):
-                        array_push($temp_array, 'He recogido el action');
                         $matrixToParam = [
-                            ['type', 'mandatory', 'default']
+                            ['type', 'mandatory', 'default'],
                         ];
 
-                        
+                        $OmegaXPATH = $xml_param->xpath('/web_api/web_methods_collection/web_method[1]/params_collection/param[1]/type|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/mandatory|//web_api/web_methods_collection/web_method[1]/params_collection/param[1]/default');
 
+                        for($j = 0; $j < count($OmegaXPATH); $j++){
+                            array_push($temp_array, $OmegaXPATH[$j]->__toString());
+                        }
+                        array_push($matrixToParam, $temp_array);
+                        $PARAM = new clsParam('action', $matrixToParam);
+                        $result = $PARAM->getParamsFromURL('action');
+                        for($k = 0; $k < count($result); $k++){
+                            array_push($validations, $result[$k]);
+                        }
                         break;
+
                     case('user'):
-                        array_push($temp_array, 'He recogido el user');
                         $matrixToParam = [
                             ['type', 'mandatory', 'min_length']
                         ];
+                        $OmegaXPATH = $xml_param->xpath('/web_api/web_methods_collection/web_method[1]/params_collection/param[2]/type|//web_api/web_methods_collection/web_method[1]/params_collection/param[2]/mandatory|//web_api/web_methods_collection/web_method[1]/params_collection/param[2]/min_length');
+
+                        for($j = 0; $j < count($OmegaXPATH); $j++){
+                            array_push($temp_array, $OmegaXPATH[$j]->__toString());
+                        }
+                        array_push($matrixToParam, $temp_array);
+                        $PARAM = new clsParam('user', $matrixToParam);
+                        $result = $PARAM->getParamsFromURL('user');
                         break;
+
                     case('pwd'):
-                        array_push($temp_array, 'He recogido el pwd');
                         $matrixToParam = [
                             ['type', 'mandatory', 'min_length']
                         ];
+                        $OmegaXPATH = $xml_param->xpath('/web_api/web_methods_collection/web_method[1]/params_collection/param[3]/type|//web_api/web_methods_collection/web_method[1]/params_collection/param[3]/mandatory|//web_api/web_methods_collection/web_method[1]/params_collection/param[3]/min_length');
+
+                        for($j = 0; $j < count($OmegaXPATH); $j++){
+                            array_push($temp_array, $OmegaXPATH[$j]->__toString());
+                        }
+                        array_push($matrixToParam, $temp_array);
+                        $PARAM = new clsParam('pwd', $matrixToParam);
+                        $result = $PARAM->getParamsFromURL('pwd');
                         break;
+
+
                     default:
-                        array_push($temp_array, 'No he recogido nada');
+                        // array_push($temp_array, 'No he recogido nada');
                         break;
+                }
+
+                for($y = 0; $y < count($validations); $y++){
+                   if($validations[$y] == false){
+                       echo "Error en la validación";
+                   }else{
+                       echo "Validación correcta";
+                   }
                 }
 
             };
             $this->ARRAY_paramName = $arrayParamName;
-            var_dump($temp_array);
 
 
             
