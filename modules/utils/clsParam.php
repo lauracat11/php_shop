@@ -30,8 +30,7 @@ class clsParam{
     }
 
     function Check_minlength($pParam, $pLengthValue){
-
-        if(strlen($pParam) >= $pLengthValue){
+        if(strlen($pParam) >= intval($pLengthValue)){
             return true;
         }else{
             return 1000;
@@ -101,6 +100,7 @@ class clsParam{
 
 
                 case "min_length":
+                        // print_r($this->ValidationParams[1]);
                         $result_minlength = $this->Check_minlength($pParamToCheck, $this->ValidationParams[1][$i]);
                         array_push($checking, $result_minlength);
                         break;
@@ -113,6 +113,3 @@ class clsParam{
             return $checking;
         }
     }
-
-
-?>
