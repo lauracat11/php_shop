@@ -10,14 +10,16 @@ class clsMethod{
     function __construct($XMLobject)
     {
         $this->xml = $XMLobject;
-        // print_r($this->xml);
-        $this->obj_xml = new clsXMLUtils();
+        // $ParamsCollection = $this->xml->params_collection;
+        // print_r($ParamsCollection);
+        $this->ParseParamCollection();
     }
 
 
     function ParseParamCollection(){
-        $this->obj_xml->ReadFileAsXML($this->xml);
-        $xpathParams =$this->obj_xml->ApplyXPath('//params_collection', false);
+        
+        $xpathParams = $this->xml->params_collection;
+        // print_r($xpathParams);
         foreach ($xpathParams as $params){
             $this->addParam($params);
         }
