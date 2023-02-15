@@ -19,7 +19,7 @@ class clsRequest{
 /////////////////////////////////////////////////////
     function GetValue($param){
         if($this->Exists()){
-            return $_GET{$pName};
+            // return $_GET{$pName};
         }
         else{
             return "undefined";

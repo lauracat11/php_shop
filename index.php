@@ -19,6 +19,11 @@
     $API = new clsServerAPI("xml/web_api_0_1.xml");
     $API->ParseWebMethod();
 
+    $MethodP= new clsMethod("xml/web_api_0_1.xml");
+    $MethodP->ParseParamCollection();
+
+
+
 
 
 

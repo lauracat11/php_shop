@@ -25,7 +25,7 @@ class clsServerAPI{
             $this->addMethod($method);
         }
 
-        print_r($this->arrMethods);
+        // print_r($this->arrMethods);
     }
 
     function addMethod($pMethod){
