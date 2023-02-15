@@ -11,25 +11,25 @@ class clsMethod{
     {
         $this->xml = $XMLobject;
         // $ParamsCollection = $this->xml->params_collection;
-        // print_r($ParamsCollection);
+        // print_r($this->xml);
         $this->ParseParamCollection();
     }
 
 
     function ParseParamCollection(){
         
-        $xpathParams = $this->xml->params_collection;
+        $xpathParamsCollection = $this->xml->params_collection;
         // print_r($xpathParams);
-        foreach ($xpathParams as $params){
+        foreach ($xpathParamsCollection as $params){
             $this->addParam($params);
         }
 
         // print_r($this->arrParams);
     }
 
-    function addParam($pParam){
-        $newParam = new clsParam($pParam);
-        array_push($this->arrParams, $newParam);
+    function addParam($pParams){
+        $newParams = new clsParam($pParams);
+        array_push($this->arrParams, $newParams);
     }
 
 

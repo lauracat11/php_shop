@@ -1,30 +1,43 @@
 <?php
 
 class clsRequest{
-    private string $configfile;
-    private $obj_xmlutil;
-   
+    private $obj_param;
 
-    function __construct($configfile){
-       
+    function __construct($obj_Params){
+        $this->obj_param = $obj_Params;
+        print_r($this->obj_param);
     }
-/////////////////////////////////////////////////////
-    function Exists($param){
-        if (isset($_GET{$pName})){
-            return true;
-        }else{
-            return false;
-        }
+
+    function getValue(){
+        $URL = $_GET['user'];
+        print_r($URL);
     }
-/////////////////////////////////////////////////////
-    function GetValue($param){
-        if($this->Exists()){
-            // return $_GET{$pName};
-        }
-        else{
-            return "undefined";
-        }
-    }
+    
+    // function ParseUrl($URL){
+    //     print_r($URL);
+    //     $arrURL = explode(" " ,$URL);
+    //     print_r($arrURL);
+    //     // foreach($arrURL as $key=>$value){
+    //     //     echo($key."->".$value . "<br>");
+    //     // }
+    // }
+     
+//     function Exists($param){
+//         if (isset($_GET{$pName})){
+//             return true;
+//         }else{
+//             return false;
+//         }
+//     }
+// /////////////////////////////////////////////////////
+//     function GetValue($param){
+//         if($this->Exists()){
+//             // return $_GET{$pName};
+//         }
+//         else{
+//             return "undefined";
+//         }
+//     }
 }
 
 
