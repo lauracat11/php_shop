@@ -5,13 +5,23 @@ class clsRequest{
 
     function __construct($obj_Params){
         $this->obj_param = $obj_Params;
-        print_r($this->obj_param);
+        // print_r($this->obj_param);
+        // $this->getValueURL();
+        // $this->printValue();
     }
 
-    function getValue(){
-        $URL = $_GET['user'];
-        print_r($URL);
-    }
+    // function printValue(){
+    //     $values = $this->obj_param;
+    //     // print_r($values);
+    //     foreach ($values as $value){
+    //         print_r($value);
+    //         var_dump($value['@attributes'] );
+    //     }
+    // }
+    // function getValueURL(){
+    //     $URL = $_GET['user'];
+    //     print_r($URL);
+    // }
     
     // function ParseUrl($URL){
     //     print_r($URL);

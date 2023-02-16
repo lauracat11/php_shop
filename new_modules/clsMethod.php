@@ -11,7 +11,7 @@ class clsMethod{
     {
         $this->xml = $XMLobject;
         // $ParamsCollection = $this->xml->params_collection;
-        // print_r($this->xml);
+        // print_r($this->xml) ;
         $this->ParseParamCollection();
     }
 
