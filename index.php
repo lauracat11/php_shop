@@ -20,14 +20,7 @@
 
     $API = new clsServerAPI("xml/web_api_0_1.xml");
     $API->ParseWebMethod();
-
-
-//    $URL = $_SERVER['REQUEST_URI'];
     
-    // $obj_request = new clsRequest;
-    // $obj_request->Exist()
-
-
 
 
 

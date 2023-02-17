@@ -19,9 +19,13 @@ class clsMethod{
     function ParseParamCollection(){
         
         $xpathParamsCollection = $this->xml->params_collection;
-        // print_r($xpathParams);
-        foreach ($xpathParamsCollection as $params){
-            $this->addParam($params);
+        // print_r($xpathParamsCollection);
+        foreach($xpathParamsCollection as $params){
+            foreach($params as $singleParams){
+                echo('heyeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee');
+                print_r($singleParams);
+                $this->addParam($singleParams);
+            }
         }
 
         // print_r($this->arrParams);
@@ -31,6 +35,12 @@ class clsMethod{
         $newParams = new clsParam($pParams);
         array_push($this->arrParams, $newParams);
     }
+
+    // function Validate(){
+    //     foreach ($arrParams as $p){
+    //         $p->ValidateParam();
+    //     }
+    // }
 
 
 
