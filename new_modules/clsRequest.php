@@ -5,6 +5,7 @@ class clsRequest{
 
     function __construct($singleParam){
         $this->param = $singleParam;
+        getValueURL($this->param);
     }
 
     function getValueURL($pUrl){
