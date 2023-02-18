@@ -31,12 +31,14 @@ class clsParam{
             switch ($nodo){
                 case 'type':
                     $this->pType = $singleParam->__toString();
+                    echo('<br>');
                     echo('este es el type');
                     echo('<br>');
                     print_r($this->pType);
                     break;
                 case 'mandatory':
                     $this->pMandatory = $singleParam->__toString();
+                    echo('<br>');
                     echo('este es el mandatory');
                     echo('<br>');
                     print_r($this->pMandatory);
@@ -44,12 +46,14 @@ class clsParam{
 
                 case 'default':
                     $this->pDefault = $singleParam->__toString();
+                    echo('<br>');
                     echo('este es el default');
                     echo('<br>');
                     print_r($this->pDefault );
                     break;
                 case 'min_length':
                     $this->pMinLength = $singleParam->__toString();
+                    echo('<br>');
                     echo('este es el min_length');
                     echo('<br>');
                     print_r($this->pMinLength);
