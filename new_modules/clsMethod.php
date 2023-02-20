@@ -22,7 +22,7 @@ class clsMethod{
         // print_r($xpathParamsCollection);
         foreach($xpathParamsCollection as $params){
             foreach($params as $singleParams){
-                print_r($singleParams['name']);
+                // print_r($singleParams['name']);
                 // echo('heyeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee');
                 // print_r($singleParams);
                 $this->addParam($singleParams);
