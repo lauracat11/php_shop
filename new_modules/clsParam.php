@@ -34,6 +34,8 @@ class clsParam
 
             foreach ($this->obj_params as $singleParam) {
                 echo ('<br>');
+                echo('Este es el valor de la URL');
+                echo('<br>');
                 echo($this->GetValueFromURL);
                 echo ('<br>');
                 echo ('Empieza la iteración en Foreach');
@@ -49,30 +51,32 @@ class clsParam
                     case 'type':
                         $this->pType = $singleParam->__toString();
                         echo ('<br>');
-                        echo ('este es el type');
+                        echo ('este es el valor del type');
                         echo ('<br>');
                         print_r($this->pType);
                         echo ('<br>');
-                        $this->Validation('type');
+                        // $this->Validation('type');
 
                         break;
 
                     case 'mandatory':
                         $this->pMandatory = $singleParam->__toString();
                         echo ('<br>');
-                        echo ('este es el mandatory');
+                        echo ('este es el valor del mandatory');
                         echo ('<br>');
                         print_r($this->pMandatory);
+                        echo('<br>');
 
-                        $this->Validation('mandatory');
+                        // $this->Validation('mandatory');
                         break;
 
                     case 'default':
                         $this->pDefault = $singleParam->__toString();
                         echo ('<br>');
-                        echo ('este es el default');
+                        echo ('este es el valor del default');
                         echo ('<br>');
                         print_r($this->pDefault);
+                        echo('<br>');
                         // $this->Validation('default');
                         break;
 
@@ -80,7 +84,7 @@ class clsParam
                         $this->pMinLength = $singleParam->__toString();
                         // $pMinLength = $singleParam->__toString();
                         echo ('<br>');
-                        echo ('este es el min_length');
+                        echo ('este es el valor del min_length');
                         echo ('<br>');
                         print_r($this->pMinLength);
                         // $this->Validation('min_length');
@@ -89,7 +93,7 @@ class clsParam
                     case 'cid':
                         $this->pCid = $singleParam->__toString();
                         echo ('<br>');
-                        echo ('este es el cid');
+                        echo ('este es el valor del cid');
                         echo ('<br>');
                         print_r($this->pCid);
                         // $this->Validation('cid');
@@ -201,8 +205,6 @@ class clsParam
                     default:
                         array_push($this->ArrayValidateParams, 'Default del switch');
                 }
-            }else{
-                echo('Fin de las validaciones');
             }
         }
     }
