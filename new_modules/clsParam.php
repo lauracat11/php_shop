@@ -5,7 +5,7 @@ class clsParam{
     private $pType;
     private $pMandatory;
     private $pDefault;
-    private $pMinLength;
+    // private $pMinLength;
 
     private $mandatory;
 
@@ -24,10 +24,10 @@ class clsParam{
             // print_r($singleParam->getName());
             // print_r($nodo);
             // $request = new clsRequest();
-
+       
             // echo('<br>');
-            //ESto obtiene el valor
-            // print_r($singleParam->__toString());
+            // ESto obtiene el valor
+            print_r($singleParam->__toString());
             switch ($nodo){
                 case 'type':
                     $this->pType = $singleParam->__toString();
@@ -53,18 +53,22 @@ class clsParam{
                     break;
                 case 'min_length':
                     $this->pMinLength = $singleParam->__toString();
+                    // $pMinLength = $singleParam->__toString();
                     echo('<br>');
                     echo('este es el min_length');
                     echo('<br>');
                     print_r($this->pMinLength);
+                    // print_r($pMinLength);
+                    // $this->Validation($pMinLength);
                     break;
             }
             
-        }
+        }   
+        
     }
 
-    // function Validation(){
-
+    // function Validation($pValidated){
+    
     // }
 
 
