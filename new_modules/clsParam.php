@@ -82,7 +82,7 @@ class clsParam
 
                     case 'min_length':
                         $this->pMinLength = $singleParam->__toString();
-                        // $pMinLength = $singleParam->__toString();
+                        $pMinLength = $singleParam->__toString();
                         echo ('<br>');
                         echo ('este es el valor del min_length');
                         echo ('<br>');
