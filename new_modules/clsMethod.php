@@ -42,7 +42,7 @@ class clsMethod{
             print_r($p->ValidateParam());
             // $variable = $this->xml->params_collection->param['name']->__toString();
             // if($variable == "action"){
-            //     $p->ValidateParam();
+                // $p->ValidateParam();
             // }
         }
     }
