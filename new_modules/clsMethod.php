@@ -37,14 +37,24 @@ class clsMethod{
         array_push($this->arrParams, $newParams);
     }
 
-    // function Validate(){
-    //     foreach ($arrParams as $p){
-    //         $p->ValidateParam();
-    //     }
-    // }
+    function Validate(){
+        foreach ($this->arrParams as $p){
+            print_r($p->ValidateParam());
+            // $variable = $this->xml->params_collection->param['name']->__toString();
+            // if($variable == "action"){
+            //     $p->ValidateParam();
+            // }
+        }
+    }
 
+    function getActionValue(){
+        $ActionValue = $this->xml->params_collection->param->default->__ToString();
+        return $ActionValue;
+    }
+
+    function getArrParams(){
+        return $this->arrParams;
+    }
 
 
 }
-
-?>

@@ -2,20 +2,18 @@
 
 class clsRequest{
 
-    private $param;
-
-    function __construct($singleParam){
-        $this->param = $singleParam;
-
+    function __construct(){
     }
 
-    function getValueURL(){
+    function getValueURL($param){
 
-        if (isset($_GET[$this->param])){
-            $URL = $_GET[$this->param];
-            return $URL;
+        if (isset($_GET[$param])){
+            $Value = $_GET[$param];
+
+            return $Value;
         }else{
-            return false;
+
+            return 'undefined';
         }
     }
 

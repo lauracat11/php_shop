@@ -33,6 +33,18 @@ class clsServerAPI{
         array_push($this->arrMethods, $newMethod);
     }
 
-}
+    function Validate($pActionValue){
 
-?>
+        foreach ($this->arrMethods as $M) {          
+            if($pActionValue == $M->getActionValue()){ 
+                echo('<br>');
+                echo('<br>');
+                echo('Aqui esta funcionando el login o el logout');
+                echo('<br>');
+                $M->Validate();
+            }
+
+        }
+    }
+
+}

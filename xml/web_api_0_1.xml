@@ -26,7 +26,7 @@
            </params_collection>
        </web_method>
  
-       <!-- <web_method>
+       <web_method>
            <endpoint>_ws_auth.php</endpoint>
            <description>Logout into the system</description>
            <params_collection>
@@ -40,7 +40,7 @@
                    <mandatory>yes</mandatory>
                </param>
            </params_collection>
-       </web_method> -->
+       </web_method>
  
    </web_methods_collection>
 </web_api>
