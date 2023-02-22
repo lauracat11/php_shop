@@ -103,9 +103,11 @@ class clsParam
             case 'user': 
                 if($this->pMandatory == 'yes'){
                     foreach ($this->obj_params as $sParam){
-                        print_r($getValue);
+                        // print_r($getValue);
                         print_r('Es mandatory user');
                         echo('<br>');
+                        $v = $this->Check_isString($getValue);
+                        $w = $this->Check_minlength($getValue, $this->pMinLength);
                         break;
                     }
                 }else{
@@ -117,10 +119,10 @@ class clsParam
             case 'pwd':
                 if($this->pMandatory == 'yes'){
                     foreach ($this->obj_params as $sParam){
-                        // print_r($this->pMandatory);
-                        print_r($getValue);
                         print_r('Es mandatory pwd');
                         echo('<br>');
+                        $v = $this->Check_isString($getValue);
+                        $w = $this->Check_minlength($getValue, $this->pMinLength);
                         break;
                     }
                 }else{
@@ -147,14 +149,18 @@ class clsParam
 
     }
 
-    // function Check_minlength($pParam, $pLengthValue)
-    // {
-    //     if (strlen($pParam) >= intval($pLengthValue)) {
-    //         return true;
-    //     } else {
-    //         return 1000;
-    //     };
-    // }
+    function Check_minlength($pParam, $pLengthValue)
+    {
+        if (strlen($pParam) >= intval($pLengthValue)) {
+            echo('Es mayor que el length');
+            echo('<br>');
+            return true;
+        } else {
+            echo('No es mayor que el length');
+            echo('<br>');
+            return 1000;
+        };
+    }
 
     // function Check_default($pParam)
     // {
@@ -169,32 +175,21 @@ class clsParam
     // }
 
 
-    // //Función que detectará si es obligatorio o no
-    // function Check_mandatory($pParam, $pMandatory)
-    // {
-    //     switch ($pMandatory) {
-    //         case ("yes"):
-    //             if ($pParam == "") {
-    //                 return 1011;
-    //             } else {
-    //                 return true;
-    //             }
+    //Función que checkeará si es un string
+    function Check_isString($checkString)
+    {
+        $result = is_string($checkString);
 
-    //         case ("no"):
-    //             return true;
-    //     }
-    // }
-
-    // //Función que checkeará si es un string
-    // function Check_isString($checkString)
-    // {
-    //     $result = is_string($checkString);
-
-    //     if ($result == false) {
-    //         return 1003;
-    //     }
-    //     return $result;
-    // }
+        if ($result == false) {
+            echo('No es string');
+            echo('<br>');
+            return 1003;
+           
+        }
+        echo('Es string');
+        echo('<br>');
+        return $result;
+    }
 
     // function Validation($pValidated)
 
