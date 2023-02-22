@@ -19,8 +19,7 @@
 ////////////////////////////////////////////////////////////////////////
     $Request = new clsRequest();
     $API = new clsServerAPI("xml/web_api_0_1.xml");
-
-
+  
     $action_value = $Request->getValueURL("action");
 
     if($action_value != "undefined"){

@@ -52,9 +52,9 @@ class clsMethod{
         return $ActionValue;
     }
 
-    function getArrParams(){
-        return $this->arrParams;
-    }
+    // function getArrParams(){
+    //     return $this->arrParams;
+    // }
 
 
 }

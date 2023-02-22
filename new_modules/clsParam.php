@@ -11,19 +11,20 @@ class clsParam
     private $obj_request;
     private $GetValueFromURL;
     private $ArrayValidateParams = [];
+    private $request;
 
     function __construct($obj_Param)
     {
         $this->obj_params = $obj_Param;
-        // $this->ParseParam();
+        $this->ParseParam();
         // $this->GetValidatedResults();
     }
 
     function ParseParam()
     {
-        print_r($this->obj_params);
-        print_r($this->obj_params['name']->__toString());
-        echo('<br>');
+        // print_r($this->obj_params);
+        // print_r($this->obj_params['name']->__toString());
+        // echo('<br>');
         $ParamToValidate = $this->obj_params['name']->__toString();
         $this->obj_request = new clsRequest($ParamToValidate);
 
@@ -36,64 +37,45 @@ class clsParam
         } else {
 
             foreach ($this->obj_params as $singleParam) {
-                echo ('<br>');
-                echo('Este es el valor de la URL');
-                echo('<br>');
-                echo($this->GetValueFromURL);
-                echo ('<br>');
-                echo ('Empieza la iteración en Foreach');
+                
+                // echo($this->GetValueFromURL);
+               
                 $nodo = $singleParam->getName();
-                echo ('<br>');
-                echo ('Impresión del nodo');
-                echo ('<br>');
-                print_r($nodo);
-                echo ('<br>');
+            
+                // print_r($nodo);
+                
 
             
                 switch ($nodo) {
                     case 'type':
                         $this->pType = $singleParam->__toString();
-                        echo ('<br>');
-                        echo ('este es el valor del type');
-                        echo ('<br>');
-                        print_r($this->pType);
-                        echo ('<br>');
+                        // print_r($this->pType);
+                       
 
                         break;
 
                     case 'mandatory':
                         $this->pMandatory = $singleParam->__toString();
-                        echo ('<br>');
-                        echo ('este es el valor del mandatory');
-                        echo ('<br>');
-                        print_r($this->pMandatory);
-                        echo('<br>');
+                        // print_r($this->pMandatory);
                         break;
 
                     case 'default':
                         $this->pDefault = $singleParam->__toString();
-                        echo ('<br>');
-                        echo ('este es el valor del default');
-                        echo ('<br>');
-                        print_r($this->pDefault);
-                        echo('<br>');
+                    
+                        // print_r($this->pDefault);
+                       
                         break;
 
                     case 'min_length':
                         $this->pMinLength = $singleParam->__toString();
-                        $pMinLength = $singleParam->__toString();
-                        echo ('<br>');
-                        echo ('este es el valor del min_length');
-                        echo ('<br>');
-                        print_r($this->pMinLength);
+                        
+                        // print_r($this->pMinLength);
 
                         break;
                     case 'cid':
                         $this->pCid = $singleParam->__toString();
-                        echo ('<br>');
-                        echo ('este es el valor del cid');
-                        echo ('<br>');
-                        print_r($this->pCid);
+                        
+                        // print_r($this->pCid);
 
                         break;
                 }
@@ -102,13 +84,67 @@ class clsParam
     }
 
     function ValidateParam(){
-        echo('<br>');
-        echo('<br>');
 
-        echo('Parámetro a validar');
-        echo('<br>');
+        // echo('<br>');
+        // echo('<br>');
+
+        // echo('Parámetro a validar');
+        // echo('<br>');
         
-        print_r($this->obj_params);
+        // print_r($this->obj_params);
+       $this->request = new clsRequest();
+
+        $getName = $this->obj_params['name']->__toString();
+        $getValue = $this->request->getValueURL($getName);
+        // print_r($getValue);
+        // print_r($this->pMandatory);
+        switch ($getName){
+            
+            case 'user': 
+                if($this->pMandatory == 'yes'){
+                    foreach ($this->obj_params as $sParam){
+                        print_r($getValue);
+                        print_r('Es mandatory user');
+                        echo('<br>');
+                        break;
+                    }
+                }else{
+                    return ('No es mandatory user');
+                }
+                
+
+                break;
+            case 'pwd':
+                if($this->pMandatory == 'yes'){
+                    foreach ($this->obj_params as $sParam){
+                        // print_r($this->pMandatory);
+                        print_r($getValue);
+                        print_r('Es mandatory pwd');
+                        echo('<br>');
+                        break;
+                    }
+                }else{
+                    return ('No es mandatory pwd');
+                }
+                break;
+            case 'cid':
+                // if($this->pMandatory == 'yes'){
+                //     foreach ($this->obj_params as $sParam){
+                //         // print_r($this->pMandatory);
+                //         print_r('Es mandatory');
+                //         // break;
+                //     }
+                // }else{
+                //     return ('No es mandatory');
+                // }
+                break;
+        }
+        // print_r($v);
+        // foreach ($this->obj_params as $sParam){
+        //     print_r($sParam);
+        // }
+
+
     }
 
     // function Check_minlength($pParam, $pLengthValue)
