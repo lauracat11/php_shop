@@ -10,8 +10,6 @@ class clsMethod{
     function __construct($XMLobject)
     {
         $this->xml = $XMLobject;
-        // $ParamsCollection = $this->xml->params_collection;
-        // print_r($this->xml) ;
         $this->ParseParamCollection();
     }
 
@@ -19,17 +17,12 @@ class clsMethod{
     function ParseParamCollection(){
         
         $xpathParamsCollection = $this->xml->params_collection;
-        // print_r($xpathParamsCollection);
         foreach($xpathParamsCollection as $params){
             foreach($params as $singleParams){
-                // print_r($singleParams['name']);
-                // echo('heyeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee');
-                // print_r($singleParams);
                 $this->addParam($singleParams);
             }
         }
 
-        // print_r($this->arrParams);
     }
 
     function addParam($pParams){
@@ -40,10 +33,6 @@ class clsMethod{
     function Validate(){
         foreach ($this->arrParams as $p){
             print_r($p->ValidateParam());
-            // $variable = $this->xml->params_collection->param['name']->__toString();
-            // if($variable == "action"){
-                // $p->ValidateParam();
-            // }
         }
     }
 
@@ -51,10 +40,5 @@ class clsMethod{
         $ActionValue = $this->xml->params_collection->param->default->__ToString();
         return $ActionValue;
     }
-
-    // function getArrParams(){
-    //     return $this->arrParams;
-    // }
-
 
 }

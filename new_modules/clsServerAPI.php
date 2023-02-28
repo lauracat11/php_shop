@@ -15,17 +15,9 @@ class clsServerAPI{
         $xpath = $this->obj_xml->ApplyXPath('//web_methods_collection/web_method', false);
 
         foreach($xpath as $method){
-            // print_r($method);
-            // echo('<br>');
-            // echo('<br>');
-            // echo('<br>');
-            // echo('<br>');
-            // echo('<br>');
-            // echo('<br>');
             $this->addMethod($method);
         }
 
-        // print_r($this->arrMethods);
     }
 
     function addMethod($pMethod){
@@ -37,10 +29,6 @@ class clsServerAPI{
 
         foreach ($this->arrMethods as $M) {          
             if($pActionValue == $M->getActionValue()){ 
-                // echo('<br>');
-                // echo('<br>');
-                // echo('Aqui esta funcionando el login o el logout');
-                // echo('<br>');
                 $M->Validate();
             }
 
