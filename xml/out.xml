@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ws_response>
+    <head>
+        <server_id></server_id>
+        <server_time></server_time>
+        <execution_time></execution_time>
+        <url></url>
+        <webmethod>
+            <name></name>
+            <parameters>
+                <parameter>
+                    <name></name>
+                    <value></value>
+                </parameter>
+            </parameters>
+        </webmethod>
+        
+        <errors>
+            <error>
+                <num_error></num_error>
+                <message_error></message_error>
+                <severity></severity>
+                <user_message></user_message>
+            </error>
+        </errors>
+    </head>
+
+    <body>
+        <response_data></response_data>
+    </body>
+</ws_response>

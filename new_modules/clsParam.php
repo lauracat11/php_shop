@@ -19,7 +19,6 @@ class clsParam
     {
         $this->obj_params = $obj_Param;
         $this->ParseParam();
-        $this->sacarRespuesta();
     }
 
     function ParseParam()
@@ -146,10 +145,4 @@ class clsParam
         return $result;
     }
 
-    function sacarRespuesta(){
-        $this->response = new clsResponse ($this->obj_params);
-        // $this->response->createDOM();
-        $this->response->createXML();
-
-    }
 }

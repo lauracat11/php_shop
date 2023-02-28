@@ -9,8 +9,14 @@ class clsServerAPI{
     {
         $this->obj_xml = new clsXMLUtils();
         $this->obj_xml->ReadFileAsXML($pXMLurl);
+        $this->sacarRespuesta();
     }
+    function sacarRespuesta(){
+        $this->response = new clsResponse ($this->obj_xml);
+        // $this->response->createDOM();
+        // $this->response->createXML();
 
+    }
     function ParseWebMethod(){
         $xpath = $this->obj_xml->ApplyXPath('//web_methods_collection/web_method', false);
 
