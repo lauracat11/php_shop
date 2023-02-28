@@ -32,7 +32,7 @@ class clsMethod{
 
     function Validate(){
         foreach ($this->arrParams as $p){
-            print_r($p->ValidateParam());
+            // print_r($p->ValidateParam());
         }
     }
 

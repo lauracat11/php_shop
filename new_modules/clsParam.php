@@ -1,5 +1,6 @@
 <?php
 include_once "clsRequest.php";
+include_once "clsResponse.php";
 class clsParam
 {
     private $obj_params;
@@ -12,11 +13,13 @@ class clsParam
     private $GetValueFromURL;
     private $ArrayValidateParams = [];
     private $request;
+    private $response;
 
     function __construct($obj_Param)
     {
         $this->obj_params = $obj_Param;
         $this->ParseParam();
+        $this->sacarRespuesta();
     }
 
     function ParseParam()
@@ -26,8 +29,8 @@ class clsParam
         $this->GetValueFromURL = $this->obj_request->getValueURL('action');
 
         if ($this->GetValueFromURL == false) {
-            echo ('Error en la validación del parámetro en URL');
-            echo ('<br>');
+            // echo ('Error en la validación del parámetro en URL');
+            // echo ('<br>');
         } else {
 
             foreach ($this->obj_params as $singleParam) {
@@ -69,9 +72,8 @@ class clsParam
             case 'user': 
                 if($this->pMandatory == 'yes'){
                     foreach ($this->obj_params as $sParam){
-                
-                        print_r('Es mandatory user');
-                        echo('<br>');
+                        // print_r('Es mandatory user');
+                        // echo('<br>');
                         $v = $this->Check_isString($getValue);
                         $w = $this->Check_minlength($getValue, $this->pMinLength);
                         break;
@@ -85,8 +87,8 @@ class clsParam
             case 'pwd':
                 if($this->pMandatory == 'yes'){
                     foreach ($this->obj_params as $sParam){
-                        print_r('Es mandatory pwd');
-                        echo('<br>');
+                        // print_r('Es mandatory pwd');
+                        // echo('<br>');
                         $v = $this->Check_isString($getValue);
                         $w = $this->Check_minlength($getValue, $this->pMinLength);
                         break;
@@ -99,8 +101,8 @@ class clsParam
 
                 if($this->pMandatory == 'yes'){
                     foreach ($this->obj_params as $sParam){
-                        print_r('Es mandatory cid');
-                        echo('<br>');
+                        // print_r('Es mandatory cid');
+                        // echo('<br>');
                         $v = $this->Check_isString($getValue);
                         break;
                     }
@@ -117,12 +119,12 @@ class clsParam
     function Check_minlength($pParam, $pLengthValue)
     {
         if (strlen($pParam) >= intval($pLengthValue)) {
-            echo('Es mayor que el length');
-            echo('<br>');
+            // echo('Es mayor que el length');
+            // echo('<br>');
             return true;
         } else {
-            echo('No es mayor que el length');
-            echo('<br>');
+            // echo('No es mayor que el length');
+            // echo('<br>');
             return 1000;
         };
     }
@@ -134,14 +136,20 @@ class clsParam
         $result = is_string($checkString);
 
         if ($result == false) {
-            echo('No es string');
-            echo('<br>');
+            // echo('No es string');
+            // echo('<br>');
             return 1003;
            
         }
-        echo('Es string');
-        echo('<br>');
+        // echo('Es string');
+        // echo('<br>');
         return $result;
     }
 
+    function sacarRespuesta(){
+        $this->response = new clsResponse ($this->obj_params);
+        // $this->response->createDOM();
+        $this->response->createXML();
+
+    }
 }
