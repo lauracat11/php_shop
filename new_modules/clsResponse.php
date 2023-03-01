@@ -1,16 +1,16 @@
 <?php
+
 class clsResponse{
     private $data;
     private $objxml;
     private $responseXML;
 
-    function __construct(clsXMLUtils $pXML){
-        $this->data = $pXML;
-        // print_r($this->data);
+    function __construct(){
         $this->objxml = new clsXMLUtils();
         $this->responseXML = $this->objxml->ReadFileAsXML('./xml/out.xml');
         // echo('hola');
         // print_r($this->responseXML);
+        $this->createXML();
 
 
     }
@@ -22,11 +22,11 @@ class clsResponse{
         echo $dom->saveXML();
     }
     function createXML(){
-        // header('content-Type: text/xml');
-        // echo ($this->data);
+        
+
     }
-    function setHeader(){
-        switch ($this->data){
+    function setHeader(string $pHeaderType){
+        switch ($pHeaderType){
             case "XML":
                 header('content-Type: text/xml');
                 break;

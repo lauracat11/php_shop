@@ -13,7 +13,11 @@ class clsServerAPI{
         $this->sacarRespuesta();
     }
     function sacarRespuesta():void{
-        $this->response = new clsResponse ($this->obj_xml);
+        // // header('content-Type: text/xml');
+        // $this->obj_xml->getXML();
+        // echo($this->obj_xml);
+        $this->response = new clsResponse ();
+        // $this->response->setHeader('XML');
         // $this->response->createDOM();
         // $this->response->createXML();
 

@@ -1,4 +1,5 @@
 <?php
+    
 
     include_once "new_modules/clsServerAPI.php";
     include_once "new_modules/clsParam.php";
@@ -14,8 +15,12 @@
 
     }
 
+    // $obj_xml = new clsXMLUtils ();
     
-
+    
+    $w = simplexml_load_file('xml/out.xml');
+    header('Content-Type: text/xml');
+    echo($w)->asXML();
 
 
 
