@@ -1,15 +1,15 @@
 <?php
 class clsResponse{
-    private  $data;
+    private $data;
     private $objxml;
     private $responseXML;
 
-    function __construct($pXML){
+    function __construct(clsXMLUtils $pXML){
         $this->data = $pXML;
         // print_r($this->data);
         $this->objxml = new clsXMLUtils();
         $this->responseXML = $this->objxml->ReadFileAsXML('./xml/out.xml');
-        echo('hola');
+        // echo('hola');
         // print_r($this->responseXML);
 
 

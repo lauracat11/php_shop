@@ -5,7 +5,7 @@ class clsRequest{
     function __construct(){
     }
 
-    function getValueURL($param){
+    function getValueURL(string $param):string{
 
         if (isset($_GET[$param])){
             $Value = $_GET[$param];

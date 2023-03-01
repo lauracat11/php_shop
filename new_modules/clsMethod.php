@@ -3,18 +3,17 @@ include_once "modules/utils/XML/clsXMLUtils.php";
 include_once "clsParam.php";
 
 class clsMethod{
-    private $obj_xml;
-    private $xml;
-    private $arrParams = [];
+    private SimpleXMLElement $xml;
+    private array $arrParams = [];
 
-    function __construct($XMLobject)
+    function __construct(SimpleXMLElement $XMLobject)
     {
         $this->xml = $XMLobject;
         $this->ParseParamCollection();
     }
 
 
-    function ParseParamCollection(){
+    function ParseParamCollection():void{
         
         $xpathParamsCollection = $this->xml->params_collection;
         foreach($xpathParamsCollection as $params){
@@ -25,18 +24,18 @@ class clsMethod{
 
     }
 
-    function addParam($pParams){
+    function addParam( SimpleXMLElement $pParams):void{
         $newParams = new clsParam($pParams);
         array_push($this->arrParams, $newParams);
     }
 
-    function Validate(){
+    function Validate():void{
         foreach ($this->arrParams as $p){
             // print_r($p->ValidateParam());
         }
     }
 
-    function getActionValue(){
+    function getActionValue():string{
         $ActionValue = $this->xml->params_collection->param->default->__ToString();
         return $ActionValue;
     }

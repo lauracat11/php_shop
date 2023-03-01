@@ -3,25 +3,25 @@ include_once "clsRequest.php";
 include_once "clsResponse.php";
 class clsParam
 {
-    private $obj_params;
-    private $pType;
-    private $pMandatory;
-    private $pDefault;
-    private $pMinLength;
-    private $pCid;
-    private $obj_request;
-    private $GetValueFromURL;
-    private $ArrayValidateParams = [];
-    private $request;
-    private $response;
+    private SimpleXMLElement $obj_params;
+    private string $pType;
+    private string $pMandatory;
+    private string $pDefault;
+    private string $pMinLength;
+    private string $pCid;
+    private clsRequest $obj_request;
+    private string $GetValueFromURL;
+    private array $ArrayValidateParams = [];
+    private clsRequest $request;
+    // private $response;
 
-    function __construct($obj_Param)
+    function __construct(SimpleXMLElement $obj_Param)
     {
         $this->obj_params = $obj_Param;
         $this->ParseParam();
     }
 
-    function ParseParam()
+    function ParseParam(): void
     {
         $ParamToValidate = $this->obj_params['name']->__toString();
         $this->obj_request = new clsRequest($ParamToValidate);
@@ -60,7 +60,7 @@ class clsParam
         }
     }
 
-    function ValidateParam(){
+    function ValidateParam() : string {
        $this->request = new clsRequest();
 
         $getName = $this->obj_params['name']->__toString();
@@ -115,12 +115,12 @@ class clsParam
 
     }
 
-    function Check_minlength($pParam, $pLengthValue)
+    function Check_minlength(string $pParam, int $pLengthValue):int
     {
         if (strlen($pParam) >= intval($pLengthValue)) {
             // echo('Es mayor que el length');
             // echo('<br>');
-            return true;
+            return 0;
         } else {
             // echo('No es mayor que el length');
             // echo('<br>');
@@ -130,7 +130,7 @@ class clsParam
 
 
     //Función que checkeará si es un string
-    function Check_isString($checkString)
+    function Check_isString(string $checkString):string
     {
         $result = is_string($checkString);
 
