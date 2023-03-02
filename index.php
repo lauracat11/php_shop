@@ -1,13 +1,15 @@
 <?php
-    header('Content-Type: text/xml');
-    include_once "new_modules/clsServerAPI.php";
-    include_once "new_modules/clsParam.php";
-    include_once "new_modules/clsRequest.php";
-    
-    
-    $Request = new clsRequest();
+include_once "new_modules/clsServerAPI.php";
+include_once "new_modules/clsParam.php";
+include_once "new_modules/clsRequest.php";
 
+header('Content-Type: text/xml');
+$w = simplexml_load_file('xml/out.xml');
+echo($w)->asXML();
     $API = new clsServerAPI("xml/web_api_0_1.xml");
+    $Request = new clsRequest();
+    
+
   
     $action_value = $Request->getValueURL("action");
 
@@ -17,7 +19,4 @@
 
     }
 
-    $w = simplexml_load_file('xml/out.xml');
-    
-    echo($w)->asXML();
 ?>

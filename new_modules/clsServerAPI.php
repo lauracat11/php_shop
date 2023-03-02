@@ -1,4 +1,5 @@
 <?php
+
 include_once "clsXMLUtils.php";
 include_once "clsMethod.php";
 
@@ -13,7 +14,6 @@ class clsServerAPI{
         $this->sacarRespuesta();
     }
     function sacarRespuesta():void{
-        $this->response = new clsResponse ();
       
     }
     function ParseWebMethod():void{
