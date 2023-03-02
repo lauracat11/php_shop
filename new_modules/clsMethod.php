@@ -23,6 +23,10 @@ class clsMethod{
 
     }
 
+    function getArrayParams(){
+        return $this->arrParams;
+    }
+
     function addParam( SimpleXMLElement $pParams):void{
         $newParams = new clsParam($pParams);
         array_push($this->arrParams, $newParams);
