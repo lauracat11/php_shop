@@ -16,6 +16,10 @@ class clsRequest{
         }
     }
 
+    function getALLvaluesURL(){
+        $result = ($_GET);
+        return $result;
+    }
 
 }
 

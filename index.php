@@ -7,8 +7,6 @@ include_once "new_modules/clsRequest.php";
     $API = new clsServerAPI("xml/web_api_0_1.xml");
 
     $Request = new clsRequest();  
-
-  
     $action_value = $Request->getValueURL("action");
 
     if($action_value != "undefined"){

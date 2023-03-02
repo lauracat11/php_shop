@@ -4,11 +4,16 @@ class clsResponse{
     private clsXMLUtils $objxml;
     private $responseXML;
     private string $responseType;
+    private clsRequest $request;
+    private array $URLvalues;
 
     function __construct(string $pResponseType){
+        $this->request = new clsRequest();
+        $this->URLvalues = $this->request->getALLvaluesURL();
         $this->responseType = $pResponseType;
         $this->objxml = new clsXMLUtils();
         $this->setContents();
+
     }
 
     function setHeader(){
@@ -31,13 +36,12 @@ class clsResponse{
         $this->setServerID();
         $this->setServerTime();
         $this->setExecutionTime();
+        $this->setWebMethod();
         $this->setURL();
-        
-        
     }
 
     function setWebMethod(){
-
+        $this->responseXML->head->webmethod->name = $this->URLvalues['action'];     
     }
 
 

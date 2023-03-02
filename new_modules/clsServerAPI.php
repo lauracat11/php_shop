@@ -18,7 +18,6 @@ class clsServerAPI
     function sacarRespuesta(): void
     {
         $this->response = new clsResponse('XML');
-        $this->response->setData($this->selectedMethod);
         $this->response->Render();
     }
 
