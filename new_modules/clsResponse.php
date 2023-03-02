@@ -6,6 +6,7 @@ class clsResponse{
     private string $responseType;
     private clsRequest $request;
     private array $URLvalues;
+    private array $arrErrors = [];
 
     function __construct(string $pResponseType){
         $this->request = new clsRequest();
@@ -14,6 +15,10 @@ class clsResponse{
         $this->objxml = new clsXMLUtils();
         $this->setContents();
 
+    }
+
+    function setError($pError){
+        array_push($this->arrErrors, $pError);
     }
 
     function setHeader(){
@@ -42,7 +47,12 @@ class clsResponse{
     }
 
     function setWebMethod(){
-        $this->responseXML->head->webmethod->name = $this->URLvalues['action'];     
+        try{
+            $this->responseXML->head->webmethod->name = $this->URLvalues['action'];     
+        }finally{
+            $error = new clsError(1099);
+            $this->setError($error);
+        }
     }
 
     function setParameters(){
@@ -51,14 +61,6 @@ class clsResponse{
             if($name != 'action'){
                 $value = $parameter;
                 $TempArray = [$name, $value];
-                // $xmlstr = <<<XML
-                //     parameter>
-                //         <name>$name</name>
-                //         <value>$value</value>
-                //     </parameter>
-                //     XML;
-            // $xmlstr = '<parameter><name>'. $name. '</name><value>'. $value. '</value></parameter>';
-                // $this->responseXML->head->webmethod->parameters->addChild($xmlstr);
                 $currentParamenter = $this->responseXML->head->webmethod->parameters->addChild('parameter');
                 $currentParamenter->addChild('name', $TempArray[0]);
                 $currentParamenter->addChild('value', $TempArray[1]);
@@ -80,6 +82,10 @@ class clsResponse{
 
     function setURL(){
         $this->responseXML->head->url = $_SERVER['REQUEST_URI'];
+    }
+
+    function RenderErrors(){
+        print_r($this->arrErrors);
     }
 
     function Render(){

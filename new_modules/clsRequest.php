@@ -12,7 +12,7 @@ class clsRequest{
             return $Value;
         }else{
 
-            return 'undefined';
+            return "undefined";
         }
     }
 
@@ -20,6 +20,7 @@ class clsRequest{
         $result = ($_GET);
         return $result;
     }
+
 
 }
 

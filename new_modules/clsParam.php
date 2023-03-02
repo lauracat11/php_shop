@@ -14,6 +14,7 @@ class clsParam
     private array $ArrayValidateParams = [];
     private clsRequest $request;
 
+
     function __construct(SimpleXMLElement $obj_Param)
     {
         $this->obj_params = $obj_Param;
@@ -101,8 +102,6 @@ class clsParam
                 }
                 break;
         }
-      
-
 
     }
 
@@ -122,7 +121,7 @@ class clsParam
         if ($result == false) {
             return 1003;
         }
-        return $result;
+        return 0;
     }
 
 }

@@ -6,7 +6,7 @@ include_once "clsMethod.php";
 class clsServerAPI
 {
     private clsXMLUtils $obj_xml;
-    private clsResponse $response;
+    // private clsResponse $response;
     private array $arrMethods = [];
     private clsMethod $selectedMethod;
 
@@ -17,8 +17,8 @@ class clsServerAPI
     }
     function sacarRespuesta(): void
     {
-        $this->response = new clsResponse('XML');
-        $this->response->Render();
+        // $this->response = new clsResponse('XML');
+        // $this->response->Render();
     }
 
     function ParseWebMethod(): void
