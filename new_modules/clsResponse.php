@@ -38,12 +38,33 @@ class clsResponse{
         $this->setExecutionTime();
         $this->setWebMethod();
         $this->setURL();
+        $this->setParameters();
     }
 
     function setWebMethod(){
         $this->responseXML->head->webmethod->name = $this->URLvalues['action'];     
     }
 
+    function setParameters(){
+        foreach($this->URLvalues as $parameter){
+            $name = array_search($parameter, $this->URLvalues);
+            if($name != 'action'){
+                $value = $parameter;
+                $TempArray = [$name, $value];
+                // $xmlstr = <<<XML
+                //     parameter>
+                //         <name>$name</name>
+                //         <value>$value</value>
+                //     </parameter>
+                //     XML;
+            // $xmlstr = '<parameter><name>'. $name. '</name><value>'. $value. '</value></parameter>';
+                // $this->responseXML->head->webmethod->parameters->addChild($xmlstr);
+                $currentParamenter = $this->responseXML->head->webmethod->parameters->addChild('parameter');
+                $currentParamenter->addChild('name', $TempArray[0]);
+                $currentParamenter->addChild('value', $TempArray[1]);
+            }
+        }
+    }
 
     function setServerID(){
         $this->responseXML->head->server_id = '1';

@@ -7,14 +7,8 @@
         <url></url>
         <webmethod>
             <name></name>
-            <parameters>
-                <parameter>
-                    <name></name>
-                    <value></value>
-                </parameter>
-            </parameters>
+            <parameters></parameters>
         </webmethod>
-        
         <errors>
             <error>
                 <num_error></num_error>
