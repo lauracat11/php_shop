@@ -1,5 +1,5 @@
 <?php
-include_once "modules/utils/XML/clsXMLUtils.php";
+include_once "clsXMLUtils.php";
 include_once "clsMethod.php";
 
 class clsServerAPI{
@@ -13,14 +13,8 @@ class clsServerAPI{
         $this->sacarRespuesta();
     }
     function sacarRespuesta():void{
-        // // header('content-Type: text/xml');
-        // $this->obj_xml->getXML();
-        // echo($this->obj_xml);
         $this->response = new clsResponse ();
-        // $this->response->setHeader('XML');
-        // $this->response->createDOM();
-        // $this->response->createXML();
-
+      
     }
     function ParseWebMethod():void{
         $xpath = $this->obj_xml->ApplyXPath('//web_methods_collection/web_method', false);

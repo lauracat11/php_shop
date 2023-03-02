@@ -1,5 +1,4 @@
 <?php
-include_once "modules/utils/XML/clsXMLUtils.php";
 include_once "clsParam.php";
 
 class clsMethod{
@@ -31,7 +30,7 @@ class clsMethod{
 
     function Validate():void{
         foreach ($this->arrParams as $p){
-            // print_r($p->ValidateParam());
+            $p->ValidateParam();
         }
     }
 

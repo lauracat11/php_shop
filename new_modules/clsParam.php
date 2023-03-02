@@ -13,7 +13,6 @@ class clsParam
     private string $GetValueFromURL;
     private array $ArrayValidateParams = [];
     private clsRequest $request;
-    // private $response;
 
     function __construct(SimpleXMLElement $obj_Param)
     {
@@ -28,8 +27,6 @@ class clsParam
         $this->GetValueFromURL = $this->obj_request->getValueURL('action');
 
         if ($this->GetValueFromURL == false) {
-            // echo ('Error en la validación del parámetro en URL');
-            // echo ('<br>');
         } else {
 
             foreach ($this->obj_params as $singleParam) {
@@ -60,7 +57,7 @@ class clsParam
         }
     }
 
-    function ValidateParam() : string {
+    function ValidateParam()  {
        $this->request = new clsRequest();
 
         $getName = $this->obj_params['name']->__toString();
@@ -71,8 +68,6 @@ class clsParam
             case 'user': 
                 if($this->pMandatory == 'yes'){
                     foreach ($this->obj_params as $sParam){
-                        // print_r('Es mandatory user');
-                        // echo('<br>');
                         $v = $this->Check_isString($getValue);
                         $w = $this->Check_minlength($getValue, $this->pMinLength);
                         break;
@@ -86,8 +81,6 @@ class clsParam
             case 'pwd':
                 if($this->pMandatory == 'yes'){
                     foreach ($this->obj_params as $sParam){
-                        // print_r('Es mandatory pwd');
-                        // echo('<br>');
                         $v = $this->Check_isString($getValue);
                         $w = $this->Check_minlength($getValue, $this->pMinLength);
                         break;
@@ -100,8 +93,6 @@ class clsParam
 
                 if($this->pMandatory == 'yes'){
                     foreach ($this->obj_params as $sParam){
-                        // print_r('Es mandatory cid');
-                        // echo('<br>');
                         $v = $this->Check_isString($getValue);
                         break;
                     }
@@ -118,30 +109,19 @@ class clsParam
     function Check_minlength(string $pParam, int $pLengthValue):int
     {
         if (strlen($pParam) >= intval($pLengthValue)) {
-            // echo('Es mayor que el length');
-            // echo('<br>');
             return 0;
         } else {
-            // echo('No es mayor que el length');
-            // echo('<br>');
             return 1000;
         };
     }
 
-
-    //Función que checkeará si es un string
     function Check_isString(string $checkString):string
     {
         $result = is_string($checkString);
 
         if ($result == false) {
-            // echo('No es string');
-            // echo('<br>');
             return 1003;
-           
         }
-        // echo('Es string');
-        // echo('<br>');
         return $result;
     }
 

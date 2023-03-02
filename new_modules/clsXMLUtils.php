@@ -15,7 +15,6 @@ class clsXMLUtils{
         return $this->obj_simplexml;
     }
 
-    //Creamos un Getter
 
     public function getXML(){
         return $this->obj_simplexml->asXML();

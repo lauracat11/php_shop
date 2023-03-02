@@ -1,5 +1,4 @@
 <?php
-
 class clsResponse{
     private $data;
     private $objxml;
@@ -8,19 +7,9 @@ class clsResponse{
     function __construct(){
         $this->objxml = new clsXMLUtils();
         $this->responseXML = $this->objxml->ReadFileAsXML('./xml/out.xml');
-        // echo('hola');
-        // print_r($this->responseXML);
         $this->createXML();
-
-
     }
-    function createDOM(){
-        $dom_sxe = dom_import_simplexml($this->data);
-        $dom = new DOMDocument('1.0');
-        $dom_sxe = $dom->importNode($dom_sxe, true);
-        $dom_sxe = $dom->appendChild($dom_sxe);
-        echo $dom->saveXML();
-    }
+  
     function createXML(){
         
 
@@ -44,8 +33,6 @@ class clsResponse{
         $this->setHeader();
         
     }
-// crear funcion flag: si es 0= XML y si es 1 = html;
-
 }
 ?>
 
