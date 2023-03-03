@@ -9,6 +9,7 @@ class clsServerAPI
     // private clsResponse $response;
     private array $arrMethods = [];
     private clsMethod $selectedMethod;
+    private array $arrErrors = [];
 
     function __construct(string $pXMLurl)
     {
@@ -42,7 +43,15 @@ class clsServerAPI
             if ($pActionValue == $M->getActionValue()) {
                 $M->Validate();
                 $this->selectedMethod = $M;
+                if(count($M->getErrors())>0){
+                    $this->arrErrors = $M->getErrors();
+                }
+                
             }
         }
+    }
+
+    function getErrors(){
+        return $this->arrErrors;
     }
 }

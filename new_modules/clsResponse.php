@@ -16,7 +16,16 @@ class clsResponse{
         $this->setContents();
 
     }
+    function appendError($pArrayAllErrors){
+        if(count($pArrayAllErrors)>0){
+            foreach($pArrayAllErrors as $e){
+            
+                array_push($this->arrErrors, $e);
 
+            }
+        }
+
+    }
     function setError($pError){
         array_push($this->arrErrors, $pError);
     }
@@ -29,6 +38,9 @@ class clsResponse{
             case "HTML":
                 header('content-Type: text/html');
                 break;
+            default:
+                $error = new clsError(1004);
+                array_push($arrErrors,$error);
         }
     }
 
@@ -47,12 +59,7 @@ class clsResponse{
     }
 
     function setWebMethod(){
-        try{
-            $this->responseXML->head->webmethod->name = $this->URLvalues['action'];     
-        }finally{
-            $error = new clsError(1099);
-            $this->setError($error);
-        }
+        $this->responseXML->head->webmethod->name = $this->URLvalues['action'];    
     }
 
     function setParameters(){

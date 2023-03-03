@@ -13,6 +13,7 @@ class clsParam
     private string $GetValueFromURL;
     private array $ArrayValidateParams = [];
     private clsRequest $request;
+    private array $arrErrorParam =[];
 
 
     function __construct(SimpleXMLElement $obj_Param)
@@ -74,7 +75,7 @@ class clsParam
                         break;
                     }
                 }else{
-                    return ('No es mandatory user');
+                    return 0;
                 }
                 
 
@@ -87,7 +88,7 @@ class clsParam
                         break;
                     }
                 }else{
-                    return ('No es mandatory pwd');
+                    return 0;
                 }
                 break;
             case 'cid':
@@ -98,7 +99,7 @@ class clsParam
                         break;
                     }
                 }else{
-                    return ('No es mandatory cid');
+                    return 0;
                 }
                 break;
         }
@@ -110,7 +111,10 @@ class clsParam
         if (strlen($pParam) >= intval($pLengthValue)) {
             return 0;
         } else {
+            $error = new clsError(1000);
+            array_push($this->arrErrorParam,$error);
             return 1000;
+
         };
     }
 
@@ -119,10 +123,14 @@ class clsParam
         $result = is_string($checkString);
 
         if ($result == false) {
-            return 1003;
+            $error = new clsError(1003);
+            array_push($this->arrErrorParam,$error);
         }
         return 0;
     }
 
+    function getErrors(){
+        return $this->arrErrorParam;
+    }
 }
 ?>

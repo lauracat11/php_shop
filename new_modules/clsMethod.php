@@ -4,6 +4,7 @@ include_once "clsParam.php";
 class clsMethod{
     private SimpleXMLElement $xml;
     private array $arrParams = [];
+    private array $arrErrors = [];
 
     function __construct(SimpleXMLElement $XMLobject)
     {
@@ -35,12 +36,22 @@ class clsMethod{
     function Validate():void{
         foreach ($this->arrParams as $p){
             $p->ValidateParam();
+            $pError = $p->getErrors();
+            if (count($pError)>0){
+                foreach ($pError as $e){
+                    array_push($this->arrErrors, $e);
+                }
+            }
         }
     }
 
     function getActionValue():string{
         $ActionValue = $this->xml->params_collection->param->default->__ToString();
         return $ActionValue;
+    }
+
+    function getErrors(){
+        return $this->arrErrors;
     }
 
 }
