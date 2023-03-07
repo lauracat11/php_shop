@@ -13,9 +13,7 @@ class clsError{
     }
 
     function Validate(){
-        // switch($this->ErrorNumber){
-        //     case():
-        // }
+
     }
 }
 

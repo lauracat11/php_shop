@@ -18,7 +18,6 @@ class clsParam
     function __construct(SimpleXMLElement $obj_Param)
     {
         $this->obj_params = $obj_Param;
-        $this->ParseParam();
     }
 
     function ParseParam(): void
@@ -33,7 +32,6 @@ class clsParam
             foreach ($this->obj_params as $singleParam) {
                  
                 $nodo = $singleParam->getName();
-
                 switch ($nodo) {
                     case 'type':
                         $this->pType = $singleParam->__toString();
@@ -53,6 +51,10 @@ class clsParam
                     case 'cid':
                         $this->pCid = $singleParam->__toString();
                         break;
+                    default:
+                        $error = new clsError(1001);
+                        array_push($arrErrorParam, $error);
+                        break;
                 }
             }
         }
@@ -65,7 +67,9 @@ class clsParam
         $getValue = $this->request->getValueURL($getName);
         
         switch ($getName){
-            
+            case 'action':
+                echo('action');
+                break;
             case 'user': 
                 if($this->pMandatory == 'yes'){
                     foreach ($this->obj_params as $sParam){
@@ -76,7 +80,6 @@ class clsParam
                 }else{
                     return 0;
                 }
-                
 
                 break;
             case 'pwd':
@@ -100,6 +103,12 @@ class clsParam
                 }else{
                     return 0;
                 }
+                break;
+
+            default:
+                echo($getName);
+                $error = new clsError(1002);
+                array_push($this->arrErrorParam, $error);
                 break;
         }
 

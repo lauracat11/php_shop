@@ -35,6 +35,7 @@ class clsMethod{
 
     function Validate():void{
         foreach ($this->arrParams as $p){
+            $p->ParseParam();
             $p->ValidateParam();
             $pError = $p->getErrors();
             if (count($pError)>0){
