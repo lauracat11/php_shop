@@ -14,7 +14,6 @@ include_once "new_modules/clsError.php";
     if($action_value != 'undefined'){
         $API->ParseWebMethod();
         $API->Validate($action_value);
-        $API->sacarRespuesta();
         $tempErrorMethod = $API->getErrors();
         $response->appendError($tempErrorMethod);
     }else{

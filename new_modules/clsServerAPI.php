@@ -16,11 +16,6 @@ class clsServerAPI
         $this->obj_xml = new clsXMLUtils();
         $this->obj_xml->ReadFileAsXML($pXMLurl);
     }
-    function sacarRespuesta(): void
-    {
-        // $this->response = new clsResponse('XML');
-        // $this->response->Render();
-    }
 
     function ParseWebMethod(): void
     {
@@ -38,16 +33,21 @@ class clsServerAPI
 
     function Validate(string $pActionValue): void
     {
-
+        $MethodExists = false;
         foreach ($this->arrMethods as $M) {
             if ($pActionValue == $M->getActionValue()) {
+                $MethodExists = true;
                 $M->Validate();
                 $this->selectedMethod = $M;
                 if(count($M->getErrors())>0){
                     $this->arrErrors = $M->getErrors();
                 }
-                
             }
+        }
+
+        if($MethodExists == false){
+            $error = new clsError(1200);
+            array_push($this->arrErrors, $error);
         }
     }
 
