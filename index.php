@@ -17,7 +17,6 @@ include_once "new_modules/clsError.php";
         $API->sacarRespuesta();
         $tempErrorMethod = $API->getErrors();
         $response->appendError($tempErrorMethod);
-        $response->RenderErrors();
     }else{
         $error = new clsError(1007);
         $response->setError($error);
