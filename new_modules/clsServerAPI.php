@@ -55,3 +55,4 @@ class clsServerAPI
         return $this->arrErrors;
     }
 }
+ ?>
