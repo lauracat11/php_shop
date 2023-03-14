@@ -19,12 +19,9 @@ class clsResponse{
     function appendError($pArrayAllErrors){
         if(count($pArrayAllErrors)>0){
             foreach($pArrayAllErrors as $e){
-            
                 array_push($this->arrErrors, $e);
-
             }
         }
-
     }
     function setError($pError){
         array_push($this->arrErrors, $pError);
@@ -55,23 +52,30 @@ class clsResponse{
         $this->setExecutionTime();
         $this->setWebMethod();
         $this->setURL();
-        $this->setParameters();
+        $this->setParametersToXML();
+        $this->setErrorsToXML();
     }
 
     function setWebMethod(){
         $this->responseXML->head->webmethod->name = $this->URLvalues['action'];    
     }
 
-    function setParameters(){
+    function setParametersToXML(){
         foreach($this->URLvalues as $parameter){
             $name = array_search($parameter, $this->URLvalues);
             if($name != 'action'){
                 $value = $parameter;
                 $TempArray = [$name, $value];
-                $currentParamenter = $this->responseXML->head->webmethod->parameters->addChild('parameter');
-                $currentParamenter->addChild('name', $TempArray[0]);
-                $currentParamenter->addChild('value', $TempArray[1]);
+                $currentParameter = $this->responseXML->head->webmethod->parameters->addChild('parameter');
+                $currentParameter->addChild('name', $TempArray[0]);
+                $currentParameter->addChild('value', $TempArray[1]);
             }
+        }
+    }
+
+    function setErrorsToXML(){
+        foreach($this->arrErrors as $error){
+            
         }
     }
 

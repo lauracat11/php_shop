@@ -94,7 +94,6 @@ class clsParam
                 }
                 break;
             case 'cid':
-
                 if($this->pMandatory == 'yes'){
                     foreach ($this->obj_params as $sParam){
                         $v = $this->Check_isString($getValue);
