@@ -6,7 +6,6 @@ include_once "clsMethod.php";
 class clsServerAPI
 {
     private clsXMLUtils $obj_xml;
-    // private clsResponse $response;
     private array $arrMethods = [];
     private clsMethod $selectedMethod;
     private array $arrErrors = [];
@@ -44,7 +43,7 @@ class clsServerAPI
                 }
             }
         }
-
+        
         if($MethodExists == false){
             $error = new clsError(1200);
             array_push($this->arrErrors, $error);
