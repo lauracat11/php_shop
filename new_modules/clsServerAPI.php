@@ -45,13 +45,17 @@ class clsServerAPI
         }
         
         if($MethodExists == false){
-            $error = new clsError(1200);
-            array_push($this->arrErrors, $error);
+           $this->sendErrorToArrErrors(1200);
         }
     }
 
     function getErrors(){
         return $this->arrErrors;
+    }
+
+    function sendErrorToArrErrors($ErrorNumber){
+        $error = new clsError($ErrorNumber);
+        array_push($this->arrErrors, $error);
     }
 }
  ?>

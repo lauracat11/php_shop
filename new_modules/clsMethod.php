@@ -12,6 +12,23 @@ class clsMethod{
         $this->ParseParamCollection();
     }
 
+    function getActionValue():string{
+        $ActionValue = $this->xml->params_collection->param->default->__ToString();
+        return $ActionValue;
+    }
+
+    function getErrors(){
+        return $this->arrErrors;
+    }
+
+    function getArrayParams(){
+        return $this->arrParams;
+    }
+
+    function addParam( SimpleXMLElement $pParams):void{
+        $newParams = new clsParam($pParams);
+        array_push($this->arrParams, $newParams);
+    }
 
     function ParseParamCollection():void{
         
@@ -22,15 +39,6 @@ class clsMethod{
             }
         }
 
-    }
-
-    function getArrayParams(){
-        return $this->arrParams;
-    }
-
-    function addParam( SimpleXMLElement $pParams):void{
-        $newParams = new clsParam($pParams);
-        array_push($this->arrParams, $newParams);
     }
 
     function Validate():void{
@@ -45,14 +53,4 @@ class clsMethod{
             }
         }
     }
-
-    function getActionValue():string{
-        $ActionValue = $this->xml->params_collection->param->default->__ToString();
-        return $ActionValue;
-    }
-
-    function getErrors(){
-        return $this->arrErrors;
-    }
-
 }

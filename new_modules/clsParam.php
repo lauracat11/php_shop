@@ -29,21 +29,17 @@ class clsParam
         if ($this->GetValueFromURL == false) {
         } else {
             foreach ($this->obj_params as $singleParam) {
-                 
                 $nodo = $singleParam->getName();
                 switch ($nodo) {
                     case 'type':
                         $this->pType = $singleParam->__toString();
                         break;
-
                     case 'mandatory':
                         $this->pMandatory = $singleParam->__toString();
                         break;
-
                     case 'default':
                         $this->pDefault = $singleParam->__toString();
                         break;
-
                     case 'min_length':
                         $this->pMinLength = $singleParam->__toString();
                         break;
@@ -60,7 +56,6 @@ class clsParam
 
     function ValidateParam()  {
        $this->request = new clsRequest();
-
         $getName = $this->obj_params['name']->__toString();
         $getValue = $this->request->getValueURL($getName);
         
@@ -71,8 +66,8 @@ class clsParam
             case 'user': 
                 if($this->pMandatory == 'yes'){
                     foreach ($this->obj_params as $sParam){
-                        $v = $this->Check_isString($getValue);
-                        $w = $this->Check_minlength($getValue, $this->pMinLength);
+                        $this->Check_isString($getValue);
+                        $this->Check_minlength($getValue, $this->pMinLength);
                         break;
                     }
                 }else{
@@ -82,8 +77,8 @@ class clsParam
             case 'pwd':
                 if($this->pMandatory == 'yes'){
                     foreach ($this->obj_params as $sParam){
-                        $v = $this->Check_isString($getValue);
-                        $w = $this->Check_minlength($getValue, $this->pMinLength);
+                        $this->Check_isString($getValue);
+                        $this->Check_minlength($getValue, $this->pMinLength);
                         break;
                     }
                 }else{
@@ -93,19 +88,17 @@ class clsParam
             case 'cid':
                 if($this->pMandatory == 'yes'){
                     foreach ($this->obj_params as $sParam){
-                        $v = $this->Check_isString($getValue);
+                        $this->Check_isString($getValue);
                         break;
                     }
                 }else{
                     return 0;
                 }
                 break;
-
             default:
                 $this->sendErrorToArrErrors(1002);
                 break;
         }
-
     }
 
     function Check_minlength(string $pParam, int $pLengthValue):int
