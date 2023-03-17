@@ -68,7 +68,7 @@ class clsParam
         
         switch ($getName){
             case 'action':
-                echo('action');
+                // echo('action');
                 break;
             case 'user': 
                 if($this->pMandatory == 'yes'){
