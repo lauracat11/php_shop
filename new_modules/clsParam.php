@@ -28,7 +28,6 @@ class clsParam
 
         if ($this->GetValueFromURL == false) {
         } else {
-
             foreach ($this->obj_params as $singleParam) {
                  
                 $nodo = $singleParam->getName();
@@ -52,8 +51,7 @@ class clsParam
                         $this->pCid = $singleParam->__toString();
                         break;
                     default:
-                        $error = new clsError(1001);
-                        array_push($arrErrorParam, $error);
+                        $this->sendErrorToArrErrors(1001);
                         break;
                 }
             }
@@ -80,7 +78,6 @@ class clsParam
                 }else{
                     return 0;
                 }
-
                 break;
             case 'pwd':
                 if($this->pMandatory == 'yes'){
@@ -105,9 +102,7 @@ class clsParam
                 break;
 
             default:
-                echo($getName);
-                $error = new clsError(1002);
-                array_push($this->arrErrorParam, $error);
+                $this->sendErrorToArrErrors(1002);
                 break;
         }
 
@@ -118,8 +113,7 @@ class clsParam
         if (strlen($pParam) >= intval($pLengthValue)) {
             return 0;
         } else {
-            $error = new clsError(1000);
-            array_push($this->arrErrorParam,$error);
+            $this->sendErrorToArrErrors(1000);
             return 1000;
 
         };
@@ -130,8 +124,7 @@ class clsParam
         $result = is_string($checkString);
 
         if ($result == false) {
-            $error = new clsError(1003);
-            array_push($this->arrErrorParam,$error);
+            $this->sendErrorToArrErrors(1003);
         }
         return 0;
     }
@@ -139,5 +132,9 @@ class clsParam
     function getErrors(){
         return $this->arrErrorParam;
     }
+
+    function sendErrorToArrErrors($ErrorNumber){
+        $error = new clsError($ErrorNumber);
+        array_push($this->arrErrorParam, $error);
+    }
 }
-?>

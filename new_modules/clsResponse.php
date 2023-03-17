@@ -74,8 +74,13 @@ class clsResponse{
     }
 
     function setErrorsToXML(){
-        foreach($this->arrErrors as $error){
-            
+        if(count($this->arrErrors) > 0){
+            foreach($this->arrErrors as $error){
+                $currentError = $this->responseXML->head->errors->addChild('error');
+                $currentError->addChild('message_error', $error->getMessageError());
+                $currentError->addChild('severity', $error->getSeverity());
+                $currentError->addChild('user_message', $error->getUserMessage());
+            }
         }
     }
 

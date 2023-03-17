@@ -10,12 +10,6 @@
             <parameters></parameters>
         </webmethod>
         <errors>
-            <error>
-                <num_error></num_error>
-                <message_error></message_error>
-                <severity></severity>
-                <user_message></user_message>
-            </error>
         </errors>
     </head>
     <body>

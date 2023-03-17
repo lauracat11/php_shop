@@ -13,6 +13,19 @@ class clsError{
       $this->Validate();
     }
 
+    function getErrorNumber(){
+      return $this->ErrorNumber;
+    }
+    function getMessageError(){
+      return $this->MessageError;
+    }
+    function getSeverity(){
+      return $this->Severity;
+    }
+    function getUserMessage(){
+      return $this->UserMessage;
+    }
+
     function Validate(){
 
       switch($this->ErrorNumber){

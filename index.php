@@ -21,6 +21,9 @@ include_once "new_modules/clsError.php";
         $response->setError($error);
     }
 
-    $response->RenderErrors();
-    
+    /////////////////////TESTING AREA////////////////////
+    // $response->RenderErrors();
+    $response->Render();
+    // $response->setErrorsToXML();
+    ///////////////////////////////////////////////7/////
 ?>
