@@ -9,6 +9,7 @@ class clsParam
     private string $pDefault;
     private string $pMinLength;
     private string $pCid;
+    private string $URLParamName;
     private clsRequest $obj_request;
     private string $GetValueFromURL;
     private array $ArrayValidateParams = [];
@@ -58,7 +59,9 @@ class clsParam
        $this->request = new clsRequest();
         $getName = $this->obj_params['name']->__toString();
         $getValue = $this->request->getValueURL($getName);
-        
+        $this->URLParamName = $getName;
+       
+       if($getValue != "undefined"){
         switch ($getName){
             case 'action':
                 // echo('action');
@@ -89,6 +92,7 @@ class clsParam
                 if($this->pMandatory == 'yes'){
                     foreach ($this->obj_params as $sParam){
                         $this->Check_isString($getValue);
+                        $this->Check_minlength($getValue, $this->pMinLength);
                         break;
                     }
                 }else{
@@ -99,6 +103,10 @@ class clsParam
                 $this->sendErrorToArrErrors(1002);
                 break;
         }
+       }else{
+         $this->sendErrorToArrErrors(1002);
+       } 
+        
     }
 
     function Check_minlength(string $pParam, int $pLengthValue):int

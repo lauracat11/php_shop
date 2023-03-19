@@ -31,14 +31,12 @@ class clsMethod{
     }
 
     function ParseParamCollection():void{
-        
         $xpathParamsCollection = $this->xml->params_collection;
         foreach($xpathParamsCollection as $params){
             foreach($params as $singleParams){
                 $this->addParam($singleParams);
             }
         }
-
     }
 
     function Validate():void{
@@ -46,6 +44,7 @@ class clsMethod{
             $p->ParseParam();
             $p->ValidateParam();
             $pError = $p->getErrors();
+            // print_r($pError);
             if (count($pError)>0){
                 foreach ($pError as $e){
                     array_push($this->arrErrors, $e);

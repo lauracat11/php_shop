@@ -7,7 +7,6 @@ include_once "new_modules/clsError.php";
 
     $API = new clsServerAPI("xml/web_api_0_1.xml");
     $response = new clsResponse('XML');
-
     $Request = new clsRequest();
 
     try{

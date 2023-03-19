@@ -38,6 +38,7 @@
                <param name="cid">
                    <type>string</type>
                    <mandatory>yes</mandatory>
+                   <min_length>5</min_length>
                </param>
            </params_collection>
        </web_method>
