@@ -64,6 +64,12 @@ class clsError{
           $this->Severity = 10;
           $this->UserMessage =" No sabemos que poner";
           break;
+
+        case 1015:
+          $this->MessageError = "No hay el parámetro Action en la URL";
+          $this->Severity = 10;
+          $this->UserMessage =" No sabemos que poner";
+          break;
         
         case 1099:
           $this->MessageError = "Error en el Response: No parámetro Action en la URL";

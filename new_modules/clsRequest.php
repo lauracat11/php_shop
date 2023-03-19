@@ -14,8 +14,12 @@ class clsRequest{
     }
 
     function getALLvaluesURL(){
-        $result = ($_GET);
-        return $result;
+        try{
+            $result = ($_GET);
+            return $result;
+        }catch(error){
+            
+        }
     }
 
 

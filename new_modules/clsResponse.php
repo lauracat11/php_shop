@@ -57,7 +57,13 @@ class clsResponse{
     }
 
     function setWebMethod(){
-        $this->responseXML->head->webmethod->name = $this->URLvalues['action'];    
+
+        if(count($this->URLvalues) > 0){
+            $this->responseXML->head->webmethod->name = $this->URLvalues['action'];    
+        }else{
+        $this->setError(new clsError(1015));
+        $this->responseXML->head->webmethod->name = 'undefined'; 
+        }
     }
 
     function setParametersToXML(){
