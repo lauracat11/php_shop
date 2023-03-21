@@ -18,6 +18,7 @@ class clsParam
 
     function __construct(SimpleXMLElement $obj_Param)
     {
+        echo('echo en Param');
         $this->obj_params = $obj_Param;
     }
 

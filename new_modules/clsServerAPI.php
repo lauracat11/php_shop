@@ -10,22 +10,21 @@ class clsServerAPI
     private clsMethod $selectedMethod;
     private array $arrErrors = [];
 
-    function __construct(string $pXMLurl)
-    {
+    function __construct(string $pXMLurl){
+        echo('echo en ServerAPI');
         $this->obj_xml = new clsXMLUtils();
         $this->obj_xml->ReadFileAsXML($pXMLurl);
+        echo('aure');
     }
 
-    function ParseWebMethod(): void
-    {
+    function ParseWebMethod(): void{
         $xpath = $this->obj_xml->ApplyXPath('//web_methods_collection/web_method', false);
         foreach ($xpath as $method) {
             $this->addMethod($method);
         }
     }
 
-    function addMethod(SimpleXMLElement $pMethod): void
-    {
+    function addMethod(SimpleXMLElement $pMethod): void{
         $newMethod = new clsMethod($pMethod);
         array_push($this->arrMethods, $newMethod);
     }

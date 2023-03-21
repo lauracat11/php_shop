@@ -9,6 +9,7 @@ class clsError{
 
     function __construct($pErrorNumber)
     {
+
       $this->ErrorNumber = $pErrorNumber;
       $this->Validate();
     }
@@ -27,7 +28,6 @@ class clsError{
     }
 
     function Validate(){
-
       switch($this->ErrorNumber){
         case 1000:
           $this->MessageError = "El parámetro no cumple el mínimo de carácteres establecido.";

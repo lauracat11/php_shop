@@ -19,7 +19,7 @@ class clsResponse{
             }
         }
     }
-    
+
     function setError(clsError $pError){
         array_push($this->arrErrors, $pError);
     }
@@ -109,9 +109,13 @@ class clsResponse{
         $this->setContents();
         switch($pResponseType){
             case "XML":
+                ob_clean();
                 echo $this->responseXML->asXML();
                 break;
-            case "HTML":
+            case "DEBUGGER":
+                $this->RenderDebugger();
+                break;
+            case 'HTML':
                 break;
             default:
                 echo('Que haces');
@@ -119,6 +123,8 @@ class clsResponse{
         }
     }
 
-    function RenderDebugger(){}
+    function RenderDebugger(){
+        echo('hola');
+    }
 }
 ?>
