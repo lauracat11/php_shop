@@ -12,6 +12,11 @@ class clsResponse{
         $this->URLvalues = $this->request->getALLvaluesURL();
         $this->objxml = new clsXMLUtils();
     }
+
+    /**
+     * 
+     */
+
     function appendError(array $pArrayAllErrors){
         if(count($pArrayAllErrors)>0){
             foreach($pArrayAllErrors as $e){

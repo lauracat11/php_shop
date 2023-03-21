@@ -56,5 +56,9 @@ class clsServerAPI
         $error = new clsError($ErrorNumber);
         array_push($this->arrErrors, $error);
     }
+
+    public static function EchoShowing($object){
+        
+    }
 }
  ?>
