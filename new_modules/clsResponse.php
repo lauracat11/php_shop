@@ -1,33 +1,31 @@
 <?php
 class clsResponse{
-    private $data;
+
     private clsXMLUtils $objxml;
     private $responseXML;
-    private string $responseType;
     private clsRequest $request;
     private array $URLvalues;
     private array $arrErrors = [];
 
-    function __construct(string $pResponseType){
+    function __construct(){
         $this->request = new clsRequest();
         $this->URLvalues = $this->request->getALLvaluesURL();
-        $this->responseType = $pResponseType;
         $this->objxml = new clsXMLUtils();
-
     }
-    function appendError($pArrayAllErrors){
+    function appendError(array $pArrayAllErrors){
         if(count($pArrayAllErrors)>0){
             foreach($pArrayAllErrors as $e){
                 array_push($this->arrErrors, $e);
             }
         }
     }
-    function setError($pError){
+    
+    function setError(clsError $pError){
         array_push($this->arrErrors, $pError);
     }
 
-    function setHeader(){
-        switch ($this->responseType){
+    function setHeader(string $responsetype){
+        switch ($responsetype){
             case "XML":
                 header('content-Type: text/xml');
                 break;
@@ -36,12 +34,9 @@ class clsResponse{
                 break;
             default:
                 $error = new clsError(1004);
-                array_push($arrErrors,$error);
+                $this->setError($error);
+                break;
         }
-    }
-
-    function setData($pDATA){
-        $this->data = $pDATA;
     }
 
     function setContents():void{
@@ -109,10 +104,21 @@ class clsResponse{
         print_r($this->arrErrors);
     }
 
-    function Render(){
-        $this->setHeader();
+    function Render(string $pResponseType){
+        $this->setHeader($pResponseType);
         $this->setContents();
-        echo $this->responseXML->asXML();
+        switch($pResponseType){
+            case "XML":
+                echo $this->responseXML->asXML();
+                break;
+            case "HTML":
+                break;
+            default:
+                echo('Que haces');
+                break;
+        }
     }
+
+    function RenderDebugger(){}
 }
 ?>
