@@ -21,12 +21,14 @@ include_once "new_modules/clsError.php";
             $error = new clsError(1007);
             $response->setError($error);
         }     
+        
+        $response->Render();
     }
 
 
     /////////////////////TESTING AREA////////////////////
     // $response->RenderErrors();
-    $response->Render();
+
     // $response->setErrorsToXML();
     ///////////////////////////////////////////////7/////
 ?>

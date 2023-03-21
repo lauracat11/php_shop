@@ -13,7 +13,6 @@ class clsResponse{
         $this->URLvalues = $this->request->getALLvaluesURL();
         $this->responseType = $pResponseType;
         $this->objxml = new clsXMLUtils();
-        $this->setContents();
 
     }
     function appendError($pArrayAllErrors){
