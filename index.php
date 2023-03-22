@@ -1,15 +1,26 @@
 <?php
-    include_once "modules/clsMethod.php";
-    include_once "modules/utils/clsParam.php";
-    //Este es Paco
-    $API =  new clsMethod("xml/web_api_0_1.xml");
-    $testARRAY = [['type','mandatory','min_length'],['string', 'yes', 15]];
-    //Esta es Paquita
-    $PARAM = new clsParam('user', $testARRAY);
-    // $API->Print();
-    $API->ParamValidation()
-    //Entra un cliente
-    // $URL = $_SERVER['REQUEST_URI'];
-    //Paquita ya no nos habla
-    // $PARAM->printARRAY();
+include_once "new_modules/clsServerAPI.php";
+include_once "new_modules/clsParam.php";
+include_once "new_modules/clsRequest.php";
+include_once "new_modules/clsError.php";
+
+    $API = new clsServerAPI("xml/web_api_0_1.xml");
+    $response = new clsResponse();
+    $Request = new clsRequest();
+
+    try{
+        $action_value = $Request->getValueURL("action");
+    }finally{
+        if($action_value != 'undefined'){
+            $API->ParseWebMethod();
+            $API->Validate($action_value);
+            $tempErrorMethod = $API->getErrors();
+            $response->appendError($tempErrorMethod);
+        }else{
+            $error = new clsError(1007);
+            $response->setError($error);
+        }     
+
+        $response->Render('XML');
+    }
 ?>

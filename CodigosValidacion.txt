@@ -1,0 +1,12 @@
+----------------------- CÓDIGOS VALIDACIÓN -----------------------
+
+· Error 1000: 
+· Error 1001: 
+· Error 1002: 
+· Error 1003:
+· Error 1004: 
+· Error 1007:
+· Error 1011:  
+· Error 1099: 
+· Error 1200: 
+
