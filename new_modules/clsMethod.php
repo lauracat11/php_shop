@@ -17,11 +17,11 @@ class clsMethod{
         return $ActionValue;
     }
 
-    function getErrors(){
+    function getErrors():array{
         return $this->arrErrors;
     }
 
-    function getArrayParams(){
+    function getArrayParams():array{
         return $this->arrParams;
     }
 
@@ -44,7 +44,6 @@ class clsMethod{
             $p->ParseParam();
             $p->ValidateParam();
             $pError = $p->getErrors();
-            // print_r($pError);
             if (count($pError)>0){
                 foreach ($pError as $e){
                     array_push($this->arrErrors, $e);

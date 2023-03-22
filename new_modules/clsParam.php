@@ -65,7 +65,7 @@ class clsParam
        if($getValue != "undefined"){
         switch ($getName){
             case 'action':
-                // echo('action');
+                clsServerAPI::EchoShowing('Action Validado', "Encontrado el {$getName}");
                 break;
             case 'user': 
                 if($this->pMandatory == 'yes'){
@@ -131,11 +131,11 @@ class clsParam
         return 0;
     }
 
-    function getErrors(){
+    function getErrors():array{
         return $this->arrErrorParam;
     }
 
-    function sendErrorToArrErrors($ErrorNumber){
+    function sendErrorToArrErrors(int $ErrorNumber):void{
         $error = new clsError($ErrorNumber);
         array_push($this->arrErrorParam, $error);
     }

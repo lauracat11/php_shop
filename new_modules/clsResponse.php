@@ -13,7 +13,7 @@ class clsResponse{
         $this->objxml = new clsXMLUtils();
     }
 
-    function appendError(array $pArrayAllErrors){
+    function appendError(array $pArrayAllErrors):void{
         if(count($pArrayAllErrors)>0){
             foreach($pArrayAllErrors as $e){
                 array_push($this->arrErrors, $e);
@@ -21,11 +21,11 @@ class clsResponse{
         }
     }
 
-    function setError(clsError $pError){
+    function setError(clsError $pError):void{
         array_push($this->arrErrors, $pError);
     }
 
-    function setHeader(string $responsetype){
+    function setHeader(string $responsetype):void{
         switch ($responsetype){
             case "XML":
                 header('content-Type: text/xml');
@@ -51,7 +51,7 @@ class clsResponse{
         $this->setErrorsToXML();
     }
 
-    function setWebMethod(){
+    function setWebMethod():void{
 
         if(count($this->URLvalues) > 0){
             $this->responseXML->head->webmethod->name = $this->URLvalues['action'];    
@@ -61,7 +61,7 @@ class clsResponse{
         }
     }
 
-    function setParametersToXML(){
+    function setParametersToXML():void{
         foreach($this->URLvalues as $parameter){
             $name = array_search($parameter, $this->URLvalues);
             if($name != 'action'){
@@ -74,7 +74,7 @@ class clsResponse{
         }
     }
 
-    function setErrorsToXML(){
+    function setErrorsToXML():void{
         if(count($this->arrErrors) > 0){
             foreach($this->arrErrors as $error){
                 $currentError = $this->responseXML->head->errors->addChild('error');
@@ -85,27 +85,27 @@ class clsResponse{
         }
     }
 
-    function setServerID(){
+    function setServerID():void{
         $this->responseXML->head->server_id = '1';
     }
 
-    function setServerTime(){
+    function setServerTime():void{
         $this->responseXML->head->server_time = date("Y-m-d H:i:s");
     }
 
-    function setExecutionTime(){
+    function setExecutionTime():void{
         $this->responseXML->head->execution_time = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
     }
 
-    function setURL(){
+    function setURL():void{
         $this->responseXML->head->url = $_SERVER['REQUEST_URI'];
     }
 
-    function RenderErrors(){
+    function RenderErrors():void{
         print_r($this->arrErrors);
     }
 
-    function Render(string $pResponseType){
+    function Render(string $pResponseType):void{
         $this->setHeader($pResponseType);
         $this->setContents();
         switch($pResponseType){

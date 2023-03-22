@@ -7,13 +7,11 @@ class clsServerAPI
 {
     private clsXMLUtils $obj_xml;
     private array $arrMethods = [];
-    private clsMethod $selectedMethod;
     private array $arrErrors = [];
 
     function __construct(string $pXMLurl){
         $this->obj_xml = new clsXMLUtils();
         $this->obj_xml->ReadFileAsXML($pXMLurl);
-        // clsServerAPI::EchoShowing('Validación de Aure', 'Aure existe');
     }
 
     function ParseWebMethod(): void{
@@ -24,7 +22,7 @@ class clsServerAPI
     }
 
     function addMethod(SimpleXMLElement $pMethod): void{
-        // clsServerAPI::EchoShowing('Añadido el método', $pMethod . 'Se ha añadido a el Array de métodos');
+        clsServerAPI::EchoShowing('Añadido el método', $pMethod . 'Se ha añadido a el Array de métodos');
         $newMethod = new clsMethod($pMethod);
         array_push($this->arrMethods, $newMethod);
     }
@@ -36,7 +34,6 @@ class clsServerAPI
             if ($pActionValue == $M->getActionValue()) {
                 $MethodExists = true;
                 $M->Validate();
-                $this->selectedMethod = $M;
                 echo('hola');
                 clsServerAPI::EchoShowing('Método Validado', 'todo bien');
                 if(count($M->getErrors())>0){
@@ -50,16 +47,16 @@ class clsServerAPI
         }
     }
 
-    function getErrors(){
+    function getErrors():array{
         return $this->arrErrors;
     }
 
-    function sendErrorToArrErrors($ErrorNumber){
+    function sendErrorToArrErrors(int $ErrorNumber):void{
         $error = new clsError($ErrorNumber);
         array_push($this->arrErrors, $error);
     }
 
-    public static function EchoShowing($title, $object){
+    public static function EchoShowing(string $title, string $object):void{
         
         echo('//////////////////////////////');
         echo('<br>');

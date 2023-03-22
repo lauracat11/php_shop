@@ -7,26 +7,26 @@ class clsError{
     public string $Severity;
     public string $UserMessage;
 
-    function __construct($pErrorNumber)
+    function __construct(int $pErrorNumber)
     {
       $this->ErrorNumber = $pErrorNumber;
       $this->Validate();
     }
 
-    function getErrorNumber(){
+    function getErrorNumber():int{
       return $this->ErrorNumber;
     }
-    function getMessageError(){
+    function getMessageError():string{
       return $this->MessageError;
     }
-    function getSeverity(){
+    function getSeverity():int{
       return $this->Severity;
     }
-    function getUserMessage(){
+    function getUserMessage():string{
       return $this->UserMessage;
     }
 
-    function Validate(){
+    function Validate():void{
       switch($this->ErrorNumber){
         case 1000:
           $this->MessageError = "El parámetro no cumple el mínimo de carácteres establecido.";
