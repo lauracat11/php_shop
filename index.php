@@ -11,7 +11,7 @@ include_once "new_modules/clsError.php";
     try{
         $action_value = $Request->getValueURL("action");
     }finally{
-        if($action_value != 'undefined'){
+        if( $action_value != 'undefined'){
             $API->ParseWebMethod();
             $API->Validate($action_value);
             $tempErrorMethod = $API->getErrors();
