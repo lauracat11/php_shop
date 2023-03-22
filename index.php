@@ -4,7 +4,6 @@ include_once "new_modules/clsParam.php";
 include_once "new_modules/clsRequest.php";
 include_once "new_modules/clsError.php";
 
-    clsServerAPI::EchoShowing();
     $API = new clsServerAPI("xml/web_api_0_1.xml");
     $response = new clsResponse();
     $Request = new clsRequest();
@@ -22,6 +21,6 @@ include_once "new_modules/clsError.php";
             $response->setError($error);
         }     
 
-        $response->Render('HTML');
+        $response->Render('XML');
     }
 ?>

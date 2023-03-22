@@ -9,7 +9,6 @@ class clsError{
 
     function __construct($pErrorNumber)
     {
-
       $this->ErrorNumber = $pErrorNumber;
       $this->Validate();
     }

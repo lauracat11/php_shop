@@ -13,10 +13,6 @@ class clsResponse{
         $this->objxml = new clsXMLUtils();
     }
 
-    /**
-     * 
-     */
-
     function appendError(array $pArrayAllErrors){
         if(count($pArrayAllErrors)>0){
             foreach($pArrayAllErrors as $e){
@@ -117,19 +113,13 @@ class clsResponse{
                 ob_clean();
                 echo $this->responseXML->asXML();
                 break;
-            case "DEBUGGER":
-                $this->RenderDebugger();
-                break;
             case 'HTML':
                 break;
             default:
-                echo('Que haces');
                 break;
         }
     }
 
-    function RenderDebugger(){
-        echo('hola');
-    }
+  
 }
 ?>

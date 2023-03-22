@@ -11,10 +11,9 @@ class clsServerAPI
     private array $arrErrors = [];
 
     function __construct(string $pXMLurl){
-        echo('echo en ServerAPI');
         $this->obj_xml = new clsXMLUtils();
         $this->obj_xml->ReadFileAsXML($pXMLurl);
-        echo('aure');
+        // clsServerAPI::EchoShowing('Validación de Aure', 'Aure existe');
     }
 
     function ParseWebMethod(): void{
@@ -25,6 +24,7 @@ class clsServerAPI
     }
 
     function addMethod(SimpleXMLElement $pMethod): void{
+        // clsServerAPI::EchoShowing('Añadido el método', $pMethod . 'Se ha añadido a el Array de métodos');
         $newMethod = new clsMethod($pMethod);
         array_push($this->arrMethods, $newMethod);
     }
@@ -37,6 +37,8 @@ class clsServerAPI
                 $MethodExists = true;
                 $M->Validate();
                 $this->selectedMethod = $M;
+                echo('hola');
+                clsServerAPI::EchoShowing('Método Validado', 'todo bien');
                 if(count($M->getErrors())>0){
                     $this->arrErrors = $M->getErrors();
                 }
@@ -57,8 +59,17 @@ class clsServerAPI
         array_push($this->arrErrors, $error);
     }
 
-    public static function EchoShowing($object){
+    public static function EchoShowing($title, $object){
         
+        echo('//////////////////////////////');
+        echo('<br>');
+        echo("{$title}");
+        echo('<br>');
+        echo("{$object}");
+        echo('<br>');
+        echo('//////////////////////////////');
+        echo('<br>');
+
     }
 }
  ?>
