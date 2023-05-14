@@ -1,4 +1,7 @@
 <?php
+
+include_once __DIR__."/../SecurityController/clsUser.php";
+
 class clsResponse{
 
     private clsXMLUtils $objxml;
@@ -83,6 +86,11 @@ class clsResponse{
                 $currentError->addChild('user_message', $error->getUserMessage());
             }
         }
+    }
+
+    function setResponseData(){
+        $testuser = new clsUser('login', 'Chouso', '1234');
+        $testuser->ExecuteAction();
     }
 
     function setServerID():void{
